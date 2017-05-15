@@ -43,7 +43,7 @@ public class Game extends Canvas {
 	/** The time at which last fired a shot */
 	private long lastFire = 0;
 	/** The interval between our players shot (ms) */
-	private long firingInterval = 100;
+	private long firingInterval = 500;
 	/** The number of aliens left on the screen */
 	private int alienCount;
 	
@@ -234,9 +234,8 @@ public class Game extends Canvas {
 			// Get hold of a graphics context for the accelerated 
 			// surface and blank it out
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
-			g.setColor(Color.black);
-			g.fillRect(0,0,800,600);
-			
+			g.fillRect(0, 0, 800, 600);
+			g.setColor(Color.BLACK);
 			// loop through entites, asking each one to move itself
 			if (!waitingForKeyPress) {
 				for (int i=0;i<entities.size();i++) {
