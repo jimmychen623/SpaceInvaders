@@ -37,7 +37,7 @@ public abstract class Entity {
 	}
 	
 	/**
-	 * Request that this entity move itself based on a certain amount
+	 * Request that this entity move itself based on a certain ammount
 	 * of time passing.
 	 * 
 	 * @param delta The ammount of time that has passed in milliseconds
@@ -134,6 +134,7 @@ public abstract class Entity {
 	/**
 	 * Notification that this entity collided with another.
 	 * 
+	 * @param other The entity with which this entity collided.
 	 */
 	public abstract void collidedWith(Entity other);
 }
