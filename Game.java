@@ -134,8 +134,8 @@ public class Game extends Canvas {
 		
 		// create a block of aliens (5 rows, by 12 aliens, spaced evenly)
 		alienCount = 0;
-		for (int row=0;row<6;row++) {
-			for (int x=0;x<13;x++) {
+		for (int row=0;row<5;row++) {
+			for (int x=0;x<10;x++) {
 				Entity alien = new AlienEntity(this,"sprites/suh1.gif",100+(x*50),(50)+row*30);
 				entities.add(alien);
 				alienCount++;
@@ -195,6 +195,7 @@ public class Game extends Canvas {
 					if (entity instanceof AlienEntity) {
 						// speed up by 2%
 						entity.setHorizontalMovement(entity.getHorizontalMovement() * 1.02);
+						entity.setVerticalMovement(entity.getVerticalMovement() * 1.02);
 					}
 				}
 				
@@ -206,20 +207,26 @@ public class Game extends Canvas {
 	 */
 	public void tryToFire() {
 		// check that we have waiting long enough to fire
-		if (System.currentTimeMillis() - lastFire < firingInterval) {
+		ShipEntity curr = ((ShipEntity)(ship));
+		System.out.println((curr.getAmmo()));
+		System.out.println(curr.hasAmmo());
+		if (System.currentTimeMillis() - lastFire < firingInterval || !curr.hasAmmo() ) {
+			System.out.println("CANT FIRE");
 			return;
 		}
 		
 		// if we waited long enough, create the shot entity, and record the time.
 		lastFire = System.currentTimeMillis();
-		ShotEntity shot1 = new ShotEntity(this,"sprites/shot.gif",ship.getX()+10,ship.getY()-30, 0, -200);
-		ShotEntity shot2 = new ShotEntity(this, "sprites/downshot.gif", ship.getX() +10, ship.getY()+30, 0, 200);
-		ShotEntity shot3 = new ShotEntity(this, "sprites/rightshot.gif", ship.getX() + 20, ship.getY(), 200, 0);
-		ShotEntity shot4 = new ShotEntity(this, "sprites/leftshot.gif", ship.getX() - 10, ship.getY(), -200, 0);
+		ShotEntity shot1 = new ShotEntity(this,"sprites/shot.gif",ship.getX()+10,ship.getY()-30, 0, -400);
+		ShotEntity shot2 = new ShotEntity(this, "sprites/downshot.gif", ship.getX() +10, ship.getY()+30, 0, 400);
+		ShotEntity shot3 = new ShotEntity(this, "sprites/rightshot.gif", ship.getX() + 20, ship.getY(), 400, 0);
+		ShotEntity shot4 = new ShotEntity(this, "sprites/leftshot.gif", ship.getX() - 10, ship.getY(), -400, 0);
 		entities.add(shot1);
 		entities.add(shot2);
 		entities.add(shot3);
 		entities.add(shot4);
+		
+		curr.decreaseAmmo();
 	}
 	
 	/**

@@ -2,11 +2,12 @@
 public class ShipEntity extends Entity{
 	/** The game in which the ship exists */
 	private Game game;
-	
+	private int ammo;
 	public ShipEntity(Game game, String ref, int x, int y) {
 		super(ref, x, y);
 		// TODO Auto-generated constructor stub
 		this.game = game;
+		this.ammo = 5;
 	}
 
 	
@@ -36,6 +37,22 @@ public class ShipEntity extends Entity{
 		if (other instanceof AlienEntity) {
 			game.notifyDeath();
 		}
+	}
+	
+	public void addAmmo() {
+		this.ammo +=100;
+	}
+	
+	public boolean hasAmmo() {
+		return this.ammo >= 0;
+	}
+	
+	public void decreaseAmmo() {
+		this.ammo -= 1;
+	}
+	
+	public double getAmmo() {
+		return this.ammo;
 	}
 
 }

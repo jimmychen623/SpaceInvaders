@@ -4,8 +4,8 @@
 
  */
 public class AlienEntity extends Entity {
-	/** The speed at which the alien moves horizontally */
-	private double moveSpeed = 200;
+	/** The initial speed at which the alien moves horizontally */
+	private double moveSpeed = 100;
 	/** The game in which the entity exists */
 	private Game game;
 	private int health = 2;
@@ -16,13 +16,18 @@ public class AlienEntity extends Entity {
 	 * @param game The game in which this entity is being created
 	 * @param ref The sprite which should be displayed for this alien
 	 * @param x The intial x location of this alien
-	 * @param y The intial y location of this alient
+	 * @param y The intial y location of this alien
 	 */
 	public AlienEntity(Game game,String ref,int x,int y) {
 		super(ref,x,y);
 		
 		this.game = game;
-		dx = -moveSpeed;
+		dx = ((Math.random()+ 0.8) / 2) * moveSpeed;
+		dx *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+		dy = ((Math.random() + 0.8) / 2) * moveSpeed;
+		dy *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+		
+				
 	}
 
 	/**
@@ -57,17 +62,33 @@ public class AlienEntity extends Entity {
 	 * Update the game logic related to aliens
 	 */
 	public void doLogic() {
+		
+		if ((dx < 0) && (x < 10)) {
+			dx = -dx;
+		}
+		// if we have reached the right hand side of 
+		// the screen and are moving right, request a logic update
+		if ((dx > 0) && (x > 750)) {
+			dx = -dx;
+		}
+		
+		if(dy > 0 && y > 580) {
+			dy = -dy;
+		}
+		if(dy < 0 && y < 5) {
+			dy = -dy;
+		}
 		// swap over horizontal movement and move down the
 		// screen a bit
-		dx = -dx;
-		y += 7;
+		//dx = -dx;
+		//y += 7;
 		
 		// if we've reached the bottom of the screen then the player
 		// dies
-		if (y > 570) {
-			game.notifyDeath();
-		}
-		dy = -dy;
+//		if (y > 570) {
+//			game.notifyDeath();
+//		}
+		//dy = -dy;
 	}
 	
 	/**
@@ -92,6 +113,14 @@ public class AlienEntity extends Entity {
 	 */
 	public void setHealth(int health) {
 		this.health = health;
+	}
+	
+	public double getMoveSpeed() {
+		return moveSpeed;
+	}
+	
+	public void setMoveSpeed(double moveSpeed) {
+		this.moveSpeed = moveSpeed;
 	}
 	
 	

@@ -1,8 +1,8 @@
 
 public class ShotEntity extends Entity {
 	
-	/** The vertical speed at which the players shot moves */
-	private double moveSpeed = -200;
+	/** The speed at which the players shot moves */
+	private double moveSpeed = 800;
 	
 	private Game game;
 	/** True if this shot has been "used", i.e. its hit something */
@@ -50,6 +50,8 @@ public class ShotEntity extends Entity {
 		}
 	}
 	
-	
+	public double getMoveSpeed() {
+		return moveSpeed;
+	}
 	
 }
