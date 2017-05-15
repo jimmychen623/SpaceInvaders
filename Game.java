@@ -152,14 +152,15 @@ public class Game extends Canvas {
 	 * @param entity The entity that should be removed
 	 */
 	public void removeEntity(Entity entity) {
-		
+		removeList.add(entity);
 	}
 	
 	/**
 	 * Notification that the player has died. 
 	 */
 	public void notifyDeath() {
-
+		message = "Oh no! Looks like you didn't make it. Try again?";
+		waitingForKeyPress = true;
 	}
 	
 	/**
@@ -167,6 +168,8 @@ public class Game extends Canvas {
 	 * are dead.
 	 */
 	public void notifyWin() {
+		message = "Well done! You Win!";
+		waitingForKeyPress = true;
 	}
 	
 	/**
@@ -174,9 +177,13 @@ public class Game extends Canvas {
 	 */
 	public void notifyAlienKilled() {
 		// reduce the alient count, if there are none left, the player has won!
-
-		
-		//SPEED UP GAME
+				alienCount--;
+				
+				if (alienCount == 0) {
+					notifyWin();
+				}
+				
+				
 	}
 	
 	/**
