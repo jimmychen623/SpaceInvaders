@@ -5,9 +5,10 @@
  */
 public class AlienEntity extends Entity {
 	/** The speed at which the alien moves horizontally */
-	private double moveSpeed = 100;
+	private double moveSpeed = 70;
 	/** The game in which the entity exists */
 	private Game game;
+	private int health = 2;
 	
 	/**
 	 * Create a new alien entity
@@ -32,12 +33,12 @@ public class AlienEntity extends Entity {
 	public void move(long delta) {
 		// if we have reached the left hand side of the screen and
 		// are moving left then request a logic update 
-		if ((dx < 0) && (x < 50)) {
+		if ((dx < 0) && (x < 10)) {
 			game.updateLogic();
 		}
 		// if we have reached the right hand side of 
 		// the screen and are moving right, request a logic update
-		if ((dx > 0) && (x > 700)) {
+		if ((dx > 0) && (x > 750)) {
 			game.updateLogic();
 		}
 		
@@ -52,7 +53,7 @@ public class AlienEntity extends Entity {
 		// swap over horizontal movement and move down the
 		// screen a bit
 		dx = -dx;
-		y += 10;
+		y += 7;
 		
 		// if we've reached the bottom of the screen then the player
 		// dies
@@ -68,5 +69,20 @@ public class AlienEntity extends Entity {
 	 */
 	public void collidedWith(Entity other) {
 		
+	}
+	
+	/**
+	 * @return health The health of the alient
+	 */
+	public int getHealth() {
+		return health;
+	}
+	
+	/**
+	 * @param health
+	 * Sets the health of this alien
+	 */
+	public void setHealth(int health) {
+		this.health = health;
 	}
 }
