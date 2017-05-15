@@ -15,18 +15,50 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * The main loop of our game. 
- * Contains a  loop that cycles through all of the 
+ * The main hook of our game. This class with both act as a manager
+ * for the display and central mediator for the game logic. 
+ * 
+ * Display management will consist of a loop that cycles round all
  * entities in the game asking them to move and then drawing them
- * in the appropriate place. In the inner classs, it 
+ * in the appropriate place. With the help of an inner class it
  * will also allow the player to control the main ship.
  * 
- * This object will be informed when entities within our game
- * detect events (e.g. alien killed, played died) and will take
+ * As a mediator it will be informed when entities within our game
+ * detect events (e.g. alient killed, played died) and will take
  * appropriate game actions.
  */
 public class Game extends Canvas {
+	/** The stragey that allows us to use accelerate page flipping */
+	private BufferStrategy strategy;
+	/** True if the game is currently "running", i.e. the game loop is looping */
+	private boolean gameRunning = true;
+	/** The list of all the entities that exist in our game */
+	private ArrayList entities = new ArrayList();
+	/** The list of entities that need to be removed from the game this loop */
+	private ArrayList removeList = new ArrayList();
+	/** The entity representing the player */
+	private Entity ship;
+	/** The speed at which the player's ship should move (pixels/sec) */
+	private double moveSpeed = 300;
+	/** The time at which last fired a shot */
+	private long lastFire = 0;
+	/** The interval between our players shot (ms) */
+	private long firingInterval = 500;
+	/** The number of aliens left on the screen */
+	private int alienCount;
 	
+	/** The message to display which waiting for a key press */
+	private String message = "";
+	/** True if we're holding up game play until a key has been pressed */
+	private boolean waitingForKeyPress = true;
+	/** True if the left cursor key is currently pressed */
+	private boolean leftPressed = false;
+	/** True if the right cursor key is currently pressed */
+	private boolean rightPressed = false;
+	/** True if we are firing */
+	private boolean firePressed = false;
+	/** True if game logic needs to be applied this loop, normally as a result of a game event */
+	private boolean logicRequiredThisLoop = false;
 	/**
 	 * Construct our game and set it running.
 	 */
@@ -43,13 +75,29 @@ public class Game extends Canvas {
 		setBounds(0,0,800,600);
 		panel.add(this);
 		
-		// Don't repaint canvas
+		// Don't let AWT repaint canvas because we will do that ourselves
 		setIgnoreRepaint(true);
 		
 		// finally make the window visible 
 		container.pack();
 		container.setResizable(false);
 		container.setVisible(true);
+		
+		// add a key input system (defined below) to our canvas
+		// so we can respond to key pressed
+		addKeyListener(new KeyInputHandler());
+		
+		// request the focus so key events come to us
+		requestFocus();
+
+		// create the buffering strategy which will allow AWT
+		// to manage our accelerated graphics
+		createBufferStrategy(2);
+		strategy = getBufferStrategy();
+		
+		// initialise the entities in our game so there's something
+		// to see at startup
+		initEntities();
 
 	}
 	
@@ -58,8 +106,16 @@ public class Game extends Canvas {
 	 * create a new set.
 	 */
 	private void startGame() {
+		// clear out any existing entities and intialise a new set
+		entities.clear();
+		initEntities();
 		
+		// blank out any keyboard settings we might currently have
+		leftPressed = false;
+		rightPressed = false;
+		firePressed = false;
 	}
+	
 	
 	/**
 	 * Initialize the starting state of the entities (ship and aliens). 
