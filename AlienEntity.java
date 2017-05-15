@@ -4,10 +4,9 @@
 
  */
 public class AlienEntity extends Entity {
-	/** The speed at which the alient moves horizontally */
-	private double moveSpeed = 75;
+	/** The speed at which the alien moves horizontally */
+	private double moveSpeed = 100;
 	/** The game in which the entity exists */
-	//TODO
 	private Game game;
 	
 	/**
@@ -31,14 +30,35 @@ public class AlienEntity extends Entity {
 	 * @param delta The time that has elapsed since last move
 	 */
 	public void move(long delta) {
-		//TODO
+		// if we have reached the left hand side of the screen and
+		// are moving left then request a logic update 
+		if ((dx < 0) && (x < 50)) {
+			game.updateLogic();
+		}
+		// if we have reached the right hand side of 
+		// the screen and are moving right, request a logic update
+		if ((dx > 0) && (x > 700)) {
+			game.updateLogic();
+		}
+		
+		// proceed with normal move
+		super.move(delta);
 	}
 	
 	/**
 	 * Update the game logic related to aliens
 	 */
 	public void doLogic() {
-	
+		// swap over horizontal movement and move down the
+		// screen a bit
+		dx = -dx;
+		y += 6;
+		
+		// if we've reached the bottom of the screen then the player
+		// dies
+		if (y > 400) {
+			game.notifyDeath();
+		}
 	}
 	
 	/**

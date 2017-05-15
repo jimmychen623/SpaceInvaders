@@ -24,8 +24,8 @@ import javax.swing.JPanel;
  * will also allow the player to control the main ship.
  * 
  * As a mediator it will be informed when entities within our game
- * detect events (e.g. alient killed, played died) and will take
- * appropriate game actions.
+ * detect events (e.g. alien killed, played died) and will take
+ * appropriate game actions
  */
 public class Game extends Canvas {
 	/** The stragey that allows us to use accelerate page flipping */
@@ -319,9 +319,7 @@ private int pressCount = 1;
 		}
 	}
 			
-		
-		
-
+	
 	
 	/**
 	 * Entry point of game
