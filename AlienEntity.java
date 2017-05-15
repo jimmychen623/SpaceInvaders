@@ -5,7 +5,7 @@
  */
 public class AlienEntity extends Entity {
 	/** The speed at which the alien moves horizontally */
-	private double moveSpeed = 70;
+	private double moveSpeed = 200;
 	/** The game in which the entity exists */
 	private Game game;
 	private int health = 2;
@@ -42,6 +42,13 @@ public class AlienEntity extends Entity {
 			game.updateLogic();
 		}
 		
+		if(dy > 0 && y > 580) {
+			game.updateLogic();
+		}
+		if(dy < 0 && y < 5) {
+			game.updateLogic();
+		}
+		
 		// proceed with normal move
 		super.move(delta);
 	}
@@ -57,9 +64,10 @@ public class AlienEntity extends Entity {
 		
 		// if we've reached the bottom of the screen then the player
 		// dies
-		if (y > 700) {
+		if (y > 570) {
 			game.notifyDeath();
 		}
+		dy = -dy;
 	}
 	
 	/**
@@ -85,4 +93,6 @@ public class AlienEntity extends Entity {
 	public void setHealth(int health) {
 		this.health = health;
 	}
+	
+	
 }

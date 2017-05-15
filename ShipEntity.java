@@ -17,7 +17,7 @@ public class ShipEntity extends Entity{
 			return;
 		}
 		// same thing but for right hand side
-		if (dx > 0 && x > 700) {
+		if (dx > 0 && x > 750) {
 			return;
 		}
 		if(dy > 0 && y > 580) {

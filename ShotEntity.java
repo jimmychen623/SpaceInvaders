@@ -8,11 +8,12 @@ public class ShotEntity extends Entity {
 	/** True if this shot has been "used", i.e. its hit something */
 	private boolean used = false;
 	
-	public ShotEntity(Game game, String ref, int x, int y) {
+	public ShotEntity(Game game, String ref, int x, int y, double xSpeed, double ySpeed) {
 		super(ref, x, y);
 		// TODO Auto-generated constructor stub
 		this.game = game;
-		dy = moveSpeed;
+		dy = ySpeed;
+		dx = xSpeed;
 	}
 	
 	
