@@ -118,10 +118,23 @@ public class Game extends Canvas {
 	
 	
 	/**
-	 * Initialize the starting state of the entities (ship and aliens). 
+	 * Initialise the starting state of the entities (ship and aliens). Each
+	 * entity will be added to the overall list of entities in the game.
 	 */
 	private void initEntities() {
-	
+		// create the player ship and place it roughly in the center of the screen
+		//ship = new ShipEntity(this,"SOME SPRITE",370,550);
+		//entities.add(ship);
+		
+		// create a block of aliens (5 rows, by 12 aliens, spaced evenly)
+		alienCount = 0;
+		for (int row=0;row<5;row++) {
+			for (int x=0;x<12;x++) {
+				//Entity alien = new AlienEntity(this,"SOME SPRITE",100+(x*50),(50)+row*30);
+				//entities.add(alien);
+				//alienCount++;
+			}
+		}
 	}
 	
 	/**
@@ -130,7 +143,7 @@ public class Game extends Canvas {
 	 * game event)
 	 */
 	public void updateLogic() {
-	
+		logicRequiredThisLoop = true;
 	}
 	
 	/**
