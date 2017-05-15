@@ -18,8 +18,21 @@ public class ShotEntity extends Entity {
 	
 	@Override
 	public void collidedWith(Entity other) {
-		// TODO Auto-generated method stub
-		
+		// prevents double kills, if we've already hit something,
+		// don't collide
+//		if (used) {
+//			return;
+//		}
+		// if we've hit an alien, kill it!
+		if (other instanceof AlienEntity) {
+			// remove the affected entities
+//			game.removeEntity(this);
+			game.removeEntity(other);
+			
+			// notify the game that the alien has been killed
+//			game.notifyAlienKilled();
+			used = true;
+		}
 	}
 	
 	public void move(long delta) {
