@@ -123,16 +123,16 @@ public class Game extends Canvas {
 	 */
 	private void initEntities() {
 		// create the player ship and place it roughly in the center of the screen
-		//ship = new ShipEntity(this,"SOME SPRITE",370,550);
-		//entities.add(ship);
+		ship = new ShipEntity(this,"SOME SPRITE",370,550);
+		entities.add(ship);
 		
 		// create a block of aliens (5 rows, by 12 aliens, spaced evenly)
 		alienCount = 0;
-		for (int row=0;row<5;row++) {
-			for (int x=0;x<12;x++) {
-				//Entity alien = new AlienEntity(this,"SOME SPRITE",100+(x*50),(50)+row*30);
-				//entities.add(alien);
-				//alienCount++;
+		for (int row=0;row<6;row++) {
+			for (int x=0;x<13;x++) {
+				Entity alien = new AlienEntity(this,"SOME SPRITE",100+(x*50),(50)+row*30);
+				entities.add(alien);
+				alienCount++;
 			}
 		}
 	}
@@ -159,7 +159,7 @@ public class Game extends Canvas {
 	 * Notification that the player has died. 
 	 */
 	public void notifyDeath() {
-		message = "Oh no! Looks like you didn't make it. Try again?";
+		message = "Oh no! YOU DIED HAHA. Try again?";
 		waitingForKeyPress = true;
 	}
 	
@@ -168,7 +168,7 @@ public class Game extends Canvas {
 	 * are dead.
 	 */
 	public void notifyWin() {
-		message = "Well done! You Win!";
+		message = "Good job. You survived";
 		waitingForKeyPress = true;
 	}
 	
@@ -176,7 +176,7 @@ public class Game extends Canvas {
 	 * Notification that an alien has been killed
 	 */
 	public void notifyAlienKilled() {
-		// reduce the alient count, if there are none left, the player has won!
+		// reduce the alien count, if there are none left, the player has won!
 				alienCount--;
 				
 				if (alienCount == 0) {
@@ -226,6 +226,31 @@ public class Game extends Canvas {
 		// keep looping round til the game ends
 		while (gameRunning) {
 			//DO STUFF
+			// work out how long its been since the last update, this
+			// will be used to calculate how far the entities should
+			// move this loop
+			long delta = System.currentTimeMillis() - lastLoopTime;
+			lastLoopTime = System.currentTimeMillis();
+			// Get hold of a graphics context for the accelerated 
+			// surface and blank it out
+			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+			g.setColor(Color.black);
+			g.fillRect(0,0,800,600);
+			
+			// loop through entites, asking each one to move itself
+			if (!waitingForKeyPress) {
+				for (int i=0;i<entities.size();i++) {
+					Entity entity = (Entity) entities.get(i);
+					
+					entity.move(delta);
+				}
+			}
+			//Draw all the entities
+			for (int i=0;i<entities.size();i++) {
+				Entity entity = (Entity) entities.get(i);
+				
+				entity.draw(g);
+			}
 		}
 	}
 	
@@ -319,7 +344,6 @@ private int pressCount = 1;
 		}
 	}
 			
-	
 	
 	/**
 	 * Entry point of game
