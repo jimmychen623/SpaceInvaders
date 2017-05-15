@@ -46,6 +46,10 @@ public class Game extends Canvas {
 	private long firingInterval = 150;
 	/** The number of aliens left on the screen */
 	private int alienCount;
+	/** The time at which ammo was spawned */
+	private long lastAmmoSpawn = 0;
+	/** The interval between ammo spawns */
+	private long ammoInterval = 2*1000;
 	
 	/** The message to display which waiting for a key press */
 	private String message = "";
@@ -122,7 +126,6 @@ public class Game extends Canvas {
 		downPressed = false;
 	}
 	
-	
 	/**
 	 * Initialize the starting state of the entities (ship and aliens). Each
 	 * entity will be added to the overall list of entities in the game.
@@ -135,7 +138,7 @@ public class Game extends Canvas {
 		// create a block of aliens (5 rows, by 12 aliens, spaced evenly)
 		alienCount = 0;
 		for (int row=0;row<5;row++) {
-			for (int x=0;x<10;x++) {
+			for (int x=0;x<1;x++) {
 				Entity alien = new AlienEntity(this,"sprites/suh1.gif",100+(x*50),(50)+row*30);
 				entities.add(alien);
 				alienCount++;
@@ -208,10 +211,7 @@ public class Game extends Canvas {
 	public void tryToFire() {
 		// check that we have waiting long enough to fire
 		ShipEntity curr = ((ShipEntity)(ship));
-		System.out.println((curr.getAmmo()));
-		System.out.println(curr.hasAmmo());
 		if (System.currentTimeMillis() - lastFire < firingInterval || !curr.hasAmmo() ) {
-			System.out.println("CANT FIRE");
 			return;
 		}
 		
@@ -227,6 +227,20 @@ public class Game extends Canvas {
 		entities.add(shot4);
 		
 		curr.decreaseAmmo();
+	}
+	
+	/**
+	 * Attempt to spawn ammo
+	 */
+	public void tryToSpawnAmmo() {
+		if(System.currentTimeMillis() - lastAmmoSpawn < ammoInterval) {
+			return;
+		}
+		lastAmmoSpawn = System.currentTimeMillis();
+		int spawnX = (int)Math.random() * 800;
+		int spawnY = (int)Math.random() * 600;
+		GiftEntity gift = new GiftEntity(this, "sprites/ammo.png", spawnX, spawnY);
+		entities.add(gift);
 	}
 	
 	/**
@@ -272,7 +286,7 @@ public class Game extends Canvas {
 				entity.draw(g);
 			}
 			
-			
+			tryToSpawnAmmo();
 			//Check for collisions. If there is a collision, notify both entities 
 			for (int p=0;p<entities.size();p++) {
 				for (int s=p+1;s<entities.size();s++) {
@@ -334,9 +348,8 @@ public class Game extends Canvas {
 				tryToFire();
 			}
 			
-			// finally pause for a bit. Note: this should run us at about
-			// 100 fps but on windows this might vary each loop due to
-			// a bad implementation of timer
+			
+
 			try { Thread.sleep(10); } catch (Exception e) {}
 		}
 	}
