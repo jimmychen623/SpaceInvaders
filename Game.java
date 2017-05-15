@@ -37,7 +37,7 @@ public class Game extends Canvas {
 	/** The list of entities that need to be removed from the game this loop */
 	private ArrayList removeList = new ArrayList();
 	/** The entity representing the player */
-	private Entity ship;
+	private ShipEntity ship;
 	/** The speed at which the player's ship should move (pixels/sec) */
 	private double moveSpeed = 300;
 	/** The time at which last fired a shot */
@@ -253,8 +253,10 @@ public class Game extends Canvas {
 			// Get hold of a graphics context for the accelerated 
 			// surface and blank it out
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
-			g.fillRect(0, 0, 800, 600);
-			g.setColor(Color.BLACK);
+			g.setColor(Color.black);
+			g.fillRect(0,0,800,600);
+			g.setColor(Color.WHITE);
+			g.drawString("Ammo: "+ship.getAmmo(), 25, 25);
 			// loop through entites, asking each one to move itself
 			if (!waitingForKeyPress) {
 				for (int i=0;i<entities.size();i++) {

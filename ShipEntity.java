@@ -44,14 +44,14 @@ public class ShipEntity extends Entity{
 	}
 	
 	public boolean hasAmmo() {
-		return this.ammo >= 0;
+		return this.ammo > 0;
 	}
 	
 	public void decreaseAmmo() {
 		this.ammo -= 1;
 	}
 	
-	public double getAmmo() {
+	public int getAmmo() {
 		return this.ammo;
 	}
 
