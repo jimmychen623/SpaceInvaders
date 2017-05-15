@@ -9,10 +9,27 @@ public class ShipEntity extends Entity{
 		this.game = game;
 	}
 
-	@Override
-	public void collidedWith(Entity other) {
-		// TODO Auto-generated method stub
+	
+	public void move(long delta) {
+		// if we're moving left and have reached the left hand side
+		// of the screen, don't move
+		if ((dx < 0) && (x < 50)) {
+			return;
+		}
+		// same thing but for right hand side
+		if ((dx > 0) && (x > 700)) {
+			return;
+		}
 		
+		super.move(delta);
+	}
+	@Override
+	public void collidedWith (Entity other) {
+		// TODO Auto-generated method stub
+		// if its an alien, notify the game that the player is dead
+		if (other instanceof AlienEntity) {
+			game.notifyDeath();
+		}
 	}
 
 }
