@@ -67,6 +67,9 @@ public class Game extends Canvas {
 	private boolean firePressed = false;
 	/** True if game logic needs to be applied this loop, normally as a result of a game event */
 	private boolean logicRequiredThisLoop = false;
+	
+	/** True if ammo has been taken */
+	protected boolean hasTakenAmmo = true;
 	/**
 	 * Construct our game and set it running.
 	 */
@@ -233,14 +236,21 @@ public class Game extends Canvas {
 	 * Attempt to spawn ammo
 	 */
 	public void tryToSpawnAmmo() {
-		if(System.currentTimeMillis() - lastAmmoSpawn < ammoInterval) {
+		
+		if(System.currentTimeMillis() - lastAmmoSpawn > ammoInterval && hasTakenAmmo) {
+			lastAmmoSpawn = System.currentTimeMillis();
+			int spawnX = (int)Math.random() * 800;
+			int spawnY = (int)Math.random() * 600;
+			GiftEntity gift = new GiftEntity(this, "sprites/ammo.png", 25, 25);
+			entities.add(gift);
+			System.out.println("AMM SPANWS");
+			hasTakenAmmo = false;
+		}
+		else {
 			return;
 		}
-		lastAmmoSpawn = System.currentTimeMillis();
-		int spawnX = (int)Math.random() * 800;
-		int spawnY = (int)Math.random() * 600;
-		GiftEntity gift = new GiftEntity(this, "sprites/ammo.png", spawnX, spawnY);
-		entities.add(gift);
+		
+		
 	}
 	
 	/**
@@ -279,6 +289,8 @@ public class Game extends Canvas {
 					entity.move(delta);
 				}
 			}
+			
+			tryToSpawnAmmo();
 			//Draw all the entities
 			for (int i=0;i<entities.size();i++) {
 				Entity entity = (Entity) entities.get(i);
@@ -286,7 +298,7 @@ public class Game extends Canvas {
 				entity.draw(g);
 			}
 			
-			tryToSpawnAmmo();
+			
 			//Check for collisions. If there is a collision, notify both entities 
 			for (int p=0;p<entities.size();p++) {
 				for (int s=p+1;s<entities.size();s++) {
@@ -347,6 +359,7 @@ public class Game extends Canvas {
 			if (firePressed) {
 				tryToFire();
 			}
+			
 			
 			
 

@@ -22,10 +22,16 @@ public class GiftEntity extends Entity{
 		if (other instanceof ShipEntity) {
 			// remove the affected entities
 			game.removeEntity(this);
+			System.out.println("Gift collided and removed");
 			ShipEntity curr = (ShipEntity)(other);
 			curr.addAmmo();
 			used = true;
+			game.hasTakenAmmo = true;
 		}
+	}
+	
+	public boolean hasTakenAmmo() {
+		return used;
 	}
 
 }
