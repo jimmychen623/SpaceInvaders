@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  * The main loop of our game. 
  * Contains a  loop that cycles through all of the 
  * entities in the game asking them to move and then drawing them
- * in the appropriate place. With the help of an inner class it
+ * in the appropriate place. In the inner classs, it 
  * will also allow the player to control the main ship.
  * 
  * This object will be informed when entities within our game
@@ -111,9 +111,8 @@ public class Game extends Canvas {
 	}
 	
 	/**
-	 * Attempt to fire a shot from the player. Its called "try"
-	 * since we must first check that the player can fire at this 
-	 * point, i.e. has he/she waited long enough between shots
+	 * Attempt to fire a shot from the player. We must first check that the player can fire at this 
+	 * point after waiting for an appropriate amount of time
 	 */
 	public void tryToFire() {
 
@@ -122,36 +121,29 @@ public class Game extends Canvas {
 	/**
 	 * The main game loop. This loop is running during all game
 	 * play as is responsible for the following activities:
-	 * <p>
+
 	 * - Working out the speed of the game loop to update moves
 	 * - Moving the game entities
 	 * - Drawing the screen contents (entities, text)
 	 * - Updating game events
 	 * - Checking Input
-	 * <p>
 	 */
 	public void gameLoop() {
 		long lastLoopTime = System.currentTimeMillis();
 		
 		// keep looping round til the game ends
 		while (gameRunning) {
+			//DO STUFF
 		}
 	}
 	
 	/**
-	 * A class to handle keyboard input from the user. The class
-	 * handles both dynamic input during game play, i.e. left/right 
-	 * and shoot, and more static type input (i.e. press any key to
-	 * continue)
-	 * 
-	 * This has been implemented as an inner class more through 
-	 * habbit then anything else. Its perfectly normal to implement
-	 * this as seperate class if slight less convienient.
+	 * A class to handle keyboard input from the user.
 	 *
 	 */
 	private class KeyInputHandler extends KeyAdapter {
-		/** The number of key presses we've had while waiting for some keycpress */
-		private int pressCount = 1;
+		/** The number of key presses we've had while waiting for some keypress */
+		private int pressCount = -1;
 		
 		
 		public void keyPressed(KeyEvent e) {
@@ -162,7 +154,7 @@ public class Game extends Canvas {
 
 
 		public void keyTyped(KeyEvent e) {
-			}
+		}
 			
 		
 		
