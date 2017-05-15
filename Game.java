@@ -106,7 +106,7 @@ public class Game extends Canvas {
 	 * create a new set.
 	 */
 	private void startGame() {
-		// clear out any existing entities and intialise a new set
+		// clear out any existing entities and intialize a new set
 		entities.clear();
 		initEntities();
 		
@@ -118,19 +118,19 @@ public class Game extends Canvas {
 	
 	
 	/**
-	 * Initialise the starting state of the entities (ship and aliens). Each
+	 * Initialize the starting state of the entities (ship and aliens). Each
 	 * entity will be added to the overall list of entities in the game.
 	 */
 	private void initEntities() {
 		// create the player ship and place it roughly in the center of the screen
-		ship = new ShipEntity(this,"SOME SPRITE",370,550);
+		ship = new ShipEntity(this,"sprites/ship.gif",370,550);
 		entities.add(ship);
 		
 		// create a block of aliens (5 rows, by 12 aliens, spaced evenly)
 		alienCount = 0;
 		for (int row=0;row<6;row++) {
 			for (int x=0;x<13;x++) {
-				Entity alien = new AlienEntity(this,"SOME SPRITE",100+(x*50),(50)+row*30);
+				Entity alien = new AlienEntity(this,"sprites/alien.gif",100+(x*50),(50)+row*30);
 				entities.add(alien);
 				alienCount++;
 			}
@@ -206,7 +206,7 @@ public class Game extends Canvas {
 		
 		// if we waited long enough, create the shot entity, and record the time.
 		lastFire = System.currentTimeMillis();
-		ShotEntity shot = new ShotEntity(this,"SOMESPRITE",ship.getX()+10,ship.getY()-30);
+		ShotEntity shot = new ShotEntity(this,"sprites/shot.gif",ship.getX()+10,ship.getY()-30);
 		entities.add(shot);
 	}
 	
@@ -251,6 +251,65 @@ public class Game extends Canvas {
 				
 				entity.draw(g);
 			}
+			
+			
+			//Check for collisions. If there is a collision, notify both entities 
+			for (int p=0;p<entities.size();p++) {
+				for (int s=p+1;s<entities.size();s++) {
+					Entity me = (Entity) entities.get(p);
+					Entity him = (Entity) entities.get(s);
+					
+					if (me.collidesWith(him)) {
+						me.collidedWith(him);
+						him.collidedWith(me);
+					}
+				}
+			}
+			
+			// remove any entity that has been marked for clear up
+			entities.removeAll(removeList);
+			removeList.clear();
+
+			//If any entity requests that logic is required, then loop through them all and do their logic
+			if (logicRequiredThisLoop) {
+				for (int i=0;i<entities.size();i++) {
+					Entity entity = (Entity) entities.get(i);
+					entity.doLogic();
+				}
+				
+				logicRequiredThisLoop = false;
+			}
+			
+			// if we're waiting for an "any key" press then draw the current message 
+			if (waitingForKeyPress) {
+				g.setColor(Color.white);
+				g.drawString(message,(800-g.getFontMetrics().stringWidth(message))/2,250);
+				g.drawString("Press any key",(800-g.getFontMetrics().stringWidth("Press any key"))/2,300);
+			}
+			
+			// finally, we've completed drawing so clear up the graphics
+			// and flip the buffer over
+			g.dispose();
+			strategy.show();
+			
+			
+			ship.setHorizontalMovement(0);
+			
+			if ((leftPressed) && (!rightPressed)) {
+				ship.setHorizontalMovement(-moveSpeed);
+			} else if ((rightPressed) && (!leftPressed)) {
+				ship.setHorizontalMovement(moveSpeed);
+			}
+			
+			// if we're pressing fire, attempt to fire
+			if (firePressed) {
+				tryToFire();
+			}
+			
+			// finally pause for a bit. Note: this should run us at about
+			// 100 fps but on windows this might vary each loop due to
+			// a bad implementation of timer
+			try { Thread.sleep(10); } catch (Exception e) {}
 		}
 	}
 	
