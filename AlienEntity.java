@@ -52,11 +52,11 @@ public class AlienEntity extends Entity {
 		// swap over horizontal movement and move down the
 		// screen a bit
 		dx = -dx;
-		y += 6;
+		y += 10;
 		
 		// if we've reached the bottom of the screen then the player
 		// dies
-		if (y > 400) {
+		if (y > 700) {
 			game.notifyDeath();
 		}
 	}

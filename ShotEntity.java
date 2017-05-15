@@ -19,18 +19,18 @@ public class ShotEntity extends Entity {
 	@Override
 	public void collidedWith(Entity other) {
 		// prevents double kills, if we've already hit something,
-		// don't collide
-//		if (used) {
-//			return;
-//		}
+		
+		if(used){
+			return;
+		}
 		// if we've hit an alien, kill it!
 		if (other instanceof AlienEntity) {
 			// remove the affected entities
-//			game.removeEntity(this);
+			game.removeEntity(this);
 			game.removeEntity(other);
 			
 			// notify the game that the alien has been killed
-//			game.notifyAlienKilled();
+			game.notifyAlienKilled();
 			used = true;
 		}
 	}
@@ -40,7 +40,7 @@ public class ShotEntity extends Entity {
 		super.move(delta);
 		
 		// if shot off the screen, remove it
-		if (y < -50) {
+		if (y < -100) {
 			game.removeEntity(this);
 		}
 	}
