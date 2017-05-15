@@ -182,7 +182,15 @@ public class Game extends Canvas {
 				if (alienCount == 0) {
 					notifyWin();
 				}
-				
+				// if there are still some aliens left then speed them up
+				for (int i=0;i<entities.size();i++) {
+					Entity entity = (Entity) entities.get(i);
+					
+					if (entity instanceof AlienEntity) {
+						// speed up by 2%
+						entity.setHorizontalMovement(entity.getHorizontalMovement() * 1.02);
+					}
+				}
 				
 	}
 	
