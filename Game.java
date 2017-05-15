@@ -39,11 +39,11 @@ public class Game extends Canvas {
 	/** The entity representing the player */
 	private Entity ship;
 	/** The speed at which the player's ship should move (pixels/sec) */
-	private double moveSpeed = 300;
+	private double moveSpeed = 250;
 	/** The time at which last fired a shot */
 	private long lastFire = 0;
 	/** The interval between our players shot (ms) */
-	private long firingInterval = 500;
+	private long firingInterval = 100;
 	/** The number of aliens left on the screen */
 	private int alienCount;
 	
