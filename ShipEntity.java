@@ -13,12 +13,17 @@ public class ShipEntity extends Entity{
 	public void move(long delta) {
 		// if we're moving left and have reached the left hand side
 		// of the screen, don't move
-		if ((dx < 0) && (x < 50)) {
+		if (dx < 0 && x < 50) {
 			return;
 		}
-		
 		// same thing but for right hand side
-		if ((dx > 0) && (x > 700)) {
+		if (dx > 0 && x > 700) {
+			return;
+		}
+		if(dy > 0 && y > 580) {
+			return;
+		}
+		if(dy < 0 && y < 10) {
 			return;
 		}
 		
