@@ -11,14 +11,22 @@ void PIN_Initialize(void) {
   PORTB->PCR[21] = (1 <<  8);                /* Pin PTB21 is GPIO */
   PORTE->PCR[26] = (1 <<  8);                /* Pin PTE26 is GPIO */
 	
-	PORTC->PCR[12] = (1 <<  8);	               /* Pin PTC12 is GPIO */
-	PORTD->PCR[0]  = (1 <<  8);					       /* Pin PTD0 is GPIO */
-	
   PTB->PDOR = (1 << 21 | 1 << 22 );          /* switch Red/Green LED off  */
   PTB->PDDR = (1 << 21 | 1 << 22 );          /* enable PTB18/19 as Output */
 
   PTE->PDOR = 1 << 26;            /* switch Blue LED off  */
   PTE->PDDR = 1 << 26;            /* enable PTE26 as Output */
+	
+	PORTB->PCR[2] = (1 <<  8);
+	PORTC->PCR[11] = (1 <<  8);
+	
+	SIM->SCGC6	  |= SIM_SCGC6_ADC0_MASK;
+	SIM->SCGC3    |= SIM_SCGC3_ADC1_MASK;
+	ADC0_CFG1			|= ADC_CFG1_MODE(3);
+	ADC0_SC1A			|= ADC_SC1_ADCH(31);
+	ADC1_CFG1			|= ADC_CFG1_MODE(3);
+	ADC1_SC1A			|= ADC_SC1_ADCH(31);
+
 }
 
 /*----------------------------------------------------------------------------
