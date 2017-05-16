@@ -6,10 +6,12 @@ public class GiftEntity extends Entity{
 	
 	
 	public GiftEntity(Game game, String ref, int x, int y) {
-		super(ref, x, y);
+		super(ref, 40, 80);
 		this.game = game;
 		dy = 0;
 		dx = 0;
+		x = 40;
+		y = 80;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -27,11 +29,17 @@ public class GiftEntity extends Entity{
 			curr.addAmmo();
 			used = true;
 			game.hasTakenAmmo = true;
+			game.lastAmmoSpawn = System.currentTimeMillis();
 		}
 	}
 	
 	public boolean hasTakenAmmo() {
 		return used;
+	}
+	
+	public void move(long delta) {
+		super.move(0);
+		
 	}
 
 }

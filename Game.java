@@ -47,9 +47,9 @@ public class Game extends Canvas {
 	/** The number of aliens left on the screen */
 	private int alienCount;
 	/** The time at which ammo was spawned */
-	private long lastAmmoSpawn = 0;
+	protected long lastAmmoSpawn = 0;
 	/** The interval between ammo spawns */
-	private long ammoInterval = 2*1000;
+	private long ammoInterval = 4*1000;
 	
 	/** The message to display which waiting for a key press */
 	private String message = "";
@@ -147,6 +147,8 @@ public class Game extends Canvas {
 				alienCount++;
 			}
 		}
+		GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", 40, 40);
+		entities.add(gift);
 	}
 	
 	/**
@@ -241,7 +243,7 @@ public class Game extends Canvas {
 			lastAmmoSpawn = System.currentTimeMillis();
 			int spawnX = (int)Math.random() * 800;
 			int spawnY = (int)Math.random() * 600;
-			GiftEntity gift = new GiftEntity(this, "sprites/ammo.png", 25, 25);
+			GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", 40, 40);
 			entities.add(gift);
 			System.out.println("AMM SPANWS");
 			hasTakenAmmo = false;
@@ -280,7 +282,8 @@ public class Game extends Canvas {
 			g.setColor(Color.black);
 			g.fillRect(0,0,800,600);
 			g.setColor(Color.WHITE);
-			g.drawString("Ammo: "+ship.getAmmo(), 25, 25);
+			g.drawString("Ammo: "+ ship.getAmmo(), 25, 25);
+			tryToSpawnAmmo();
 			// loop through entites, asking each one to move itself
 			if (!waitingForKeyPress) {
 				for (int i=0;i<entities.size();i++) {
@@ -290,12 +293,13 @@ public class Game extends Canvas {
 				}
 			}
 			
-			tryToSpawnAmmo();
+			
 			//Draw all the entities
 			for (int i=0;i<entities.size();i++) {
 				Entity entity = (Entity) entities.get(i);
 				
 				entity.draw(g);
+				
 			}
 			
 			
@@ -318,6 +322,7 @@ public class Game extends Canvas {
 
 			//If any entity requests that logic is required, then loop through them all and do their logic
 			if (logicRequiredThisLoop) {
+				System.out.println("Logic required");
 				for (int i=0;i<entities.size();i++) {
 					Entity entity = (Entity) entities.get(i);
 					entity.doLogic();
@@ -328,6 +333,7 @@ public class Game extends Canvas {
 			
 			// if we're waiting for an "any key" press then draw the current message 
 			if (waitingForKeyPress) {
+				//System.out.println("waitingForKeyPress");
 				g.setColor(Color.white);
 				g.drawString(message,(800-g.getFontMetrics().stringWidth(message))/2,250);
 				g.drawString("Press any key",(800-g.getFontMetrics().stringWidth("Press any key"))/2,300);
@@ -359,6 +365,8 @@ public class Game extends Canvas {
 			if (firePressed) {
 				tryToFire();
 			}
+			
+			//try {Thread.sleep(100);} catch (Exception e) {}
 			
 			
 			
