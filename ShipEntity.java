@@ -3,6 +3,7 @@ public class ShipEntity extends Entity{
 	/** The game in which the ship exists */
 	private Game game;
 	private int ammo;
+	private int ammoIncrement = 25;
 	public ShipEntity(Game game, String ref, int x, int y) {
 		super(ref, x, y);
 		// TODO Auto-generated constructor stub
@@ -40,7 +41,7 @@ public class ShipEntity extends Entity{
 	}
 	
 	public void addAmmo() {
-		this.ammo +=100;
+		this.ammo +=ammoIncrement;
 	}
 	
 	public boolean hasAmmo() {

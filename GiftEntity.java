@@ -6,12 +6,10 @@ public class GiftEntity extends Entity{
 	
 	
 	public GiftEntity(Game game, String ref, int x, int y) {
-		super(ref, 40, 80);
+		super(ref, x, y);
 		this.game = game;
 		dy = 0;
 		dx = 0;
-		x = 40;
-		y = 80;
 		// TODO Auto-generated constructor stub
 	}
 

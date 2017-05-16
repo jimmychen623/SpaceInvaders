@@ -147,7 +147,9 @@ public class Game extends Canvas {
 				alienCount++;
 			}
 		}
-		GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", 40, 40);
+		int spawnX = (int) (Math.random() * 800);
+		int spawnY = (int) (Math.random() * 600) ;
+		GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", spawnX, spawnY);
 		entities.add(gift);
 	}
 	
@@ -241,9 +243,9 @@ public class Game extends Canvas {
 		
 		if(System.currentTimeMillis() - lastAmmoSpawn > ammoInterval && hasTakenAmmo) {
 			lastAmmoSpawn = System.currentTimeMillis();
-			int spawnX = (int)Math.random() * 800;
-			int spawnY = (int)Math.random() * 600;
-			GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", 40, 40);
+			int spawnX = (int)(Math.random() * 800);
+			int spawnY = (int)(Math.random() * 600);
+			GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", spawnX, spawnY);
 			entities.add(gift);
 			System.out.println("AMM SPANWS");
 			hasTakenAmmo = false;
@@ -283,7 +285,7 @@ public class Game extends Canvas {
 			g.fillRect(0,0,800,600);
 			g.setColor(Color.WHITE);
 			g.drawString("Ammo: "+ ship.getAmmo(), 25, 25);
-			tryToSpawnAmmo();
+			
 			// loop through entites, asking each one to move itself
 			if (!waitingForKeyPress) {
 				for (int i=0;i<entities.size();i++) {
