@@ -147,11 +147,8 @@ public class Game extends Canvas {
 				alienCount++;
 			}
 		}
-		int spawnX = (int) (Math.random() * 800);
-		int spawnY = (int) (Math.random() * 600) ;
-		GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", spawnX, spawnY);
-		entities.add(gift);
-		hasTakenAmmo = false;
+		
+		hasTakenAmmo = true;
 	}
 	
 	/**
@@ -242,13 +239,12 @@ public class Game extends Canvas {
 	 */
 	public void tryToSpawnAmmo() {
 		
-		if(System.currentTimeMillis() - lastAmmoSpawn > ammoInterval && hasTakenAmmo) {
+		if(System.currentTimeMillis() - lastAmmoSpawn > ammoInterval && hasTakenAmmo && !waitingForKeyPress) {
 			lastAmmoSpawn = System.currentTimeMillis();
 			int spawnX = (int)(Math.random() * 800);
 			int spawnY = (int)(Math.random() * 600);
-			GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", spawnX, spawnY);
+			GiftEntity gift = new GiftEntity(this, "sprites/ammosmall.gif", spawnX, spawnY);
 			entities.add(gift);
-			System.out.println("AMM SPANWS");
 			hasTakenAmmo = false;
 		}
 		else {
