@@ -78,17 +78,6 @@ public class AlienEntity extends Entity {
 		if(dy < 0 && y < 5) {
 			dy = -dy;
 		}
-		// swap over horizontal movement and move down the
-		// screen a bit
-		//dx = -dx;
-		//y += 7;
-		
-		// if we've reached the bottom of the screen then the player
-		// dies
-//		if (y > 570) {
-//			game.notifyDeath();
-//		}
-		//dy = -dy;
 	}
 	
 	/**

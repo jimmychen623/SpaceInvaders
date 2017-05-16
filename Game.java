@@ -321,7 +321,6 @@ public class Game extends Canvas {
 
 			//If any entity requests that logic is required, then loop through them all and do their logic
 			if (logicRequiredThisLoop) {
-				System.out.println("Logic required");
 				for (int i=0;i<entities.size();i++) {
 					Entity entity = (Entity) entities.get(i);
 					entity.doLogic();
@@ -332,7 +331,6 @@ public class Game extends Canvas {
 			
 			// if we're waiting for an "any key" press then draw the current message 
 			if (waitingForKeyPress) {
-				//System.out.println("waitingForKeyPress");
 				g.setColor(Color.white);
 				g.drawString(message,(800-g.getFontMetrics().stringWidth(message))/2,250);
 				g.drawString("Press any key",(800-g.getFontMetrics().stringWidth("Press any key"))/2,300);
