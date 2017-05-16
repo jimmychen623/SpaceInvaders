@@ -94,6 +94,12 @@ public class Game extends Canvas {
 		container.setResizable(false);
 		container.setVisible(true);
 		
+		container.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+		
 		// add a key input system (defined below) to our canvas
 		// so we can respond to key pressed
 		addKeyListener(new KeyInputHandler());
@@ -241,8 +247,8 @@ public class Game extends Canvas {
 		
 		if(System.currentTimeMillis() - lastAmmoSpawn > ammoInterval && hasTakenAmmo && !waitingForKeyPress) {
 			lastAmmoSpawn = System.currentTimeMillis();
-			int spawnX = (int)(Math.random() * 800);
-			int spawnY = (int)(Math.random() * 600);
+			int spawnX = (int)(Math.random() * 760) + 20;
+			int spawnY = (int)(Math.random() * 560) + 20;
 			GiftEntity gift = new GiftEntity(this, "sprites/ammosmall.gif", spawnX, spawnY);
 			entities.add(gift);
 			hasTakenAmmo = false;
