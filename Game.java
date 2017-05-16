@@ -151,6 +151,7 @@ public class Game extends Canvas {
 		int spawnY = (int) (Math.random() * 600) ;
 		GiftEntity gift = new GiftEntity(this, "sprites/ammo.gif", spawnX, spawnY);
 		entities.add(gift);
+		hasTakenAmmo = false;
 	}
 	
 	/**
@@ -367,6 +368,7 @@ public class Game extends Canvas {
 			if (firePressed) {
 				tryToFire();
 			}
+			tryToSpawnAmmo();
 			
 			//try {Thread.sleep(100);} catch (Exception e) {}
 			
