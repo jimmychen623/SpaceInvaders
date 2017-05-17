@@ -116,9 +116,9 @@ Image Symbol Table
     i.ADCRead_H                              0x00000480   Section        0  framework.o(i.ADCRead_H)
     i.ADCRead_V                              0x000004b0   Section        0  framework.o(i.ADCRead_V)
     i.PIN_Initialize                         0x000004e0   Section        0  utils.o(i.PIN_Initialize)
-    i.SystemInit                             0x00000580   Section        0  system_mk64f12.o(i.SystemInit)
-    i.init_data_bss                          0x0000059c   Section        0  startup.o(i.init_data_bss)
-    i.main                                   0x000005e4   Section        0  framework.o(i.main)
+    i.SystemInit                             0x0000057c   Section        0  system_mk64f12.o(i.SystemInit)
+    i.init_data_bss                          0x00000598   Section        0  startup.o(i.init_data_bss)
+    i.main                                   0x000005e0   Section        0  framework.o(i.main)
 
     Global Symbols
 
@@ -246,12 +246,12 @@ Image Symbol Table
     __scatterload_rt2                        0x0000045d   Thumb Code     0  init.o(.text)
     ADCRead_H                                0x00000481   Thumb Code    42  framework.o(i.ADCRead_H)
     ADCRead_V                                0x000004b1   Thumb Code    42  framework.o(i.ADCRead_V)
-    PIN_Initialize                           0x000004e1   Thumb Code   126  utils.o(i.PIN_Initialize)
-    SystemInit                               0x00000581   Thumb Code    22  system_mk64f12.o(i.SystemInit)
-    init_data_bss                            0x0000059d   Thumb Code    54  startup.o(i.init_data_bss)
-    main                                     0x000005e5   Thumb Code    94  framework.o(i.main)
-    Region$$Table$$Base                      0x0000064c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000064c   Number         0  anon$$obj.o(Region$$Table)
+    PIN_Initialize                           0x000004e1   Thumb Code   122  utils.o(i.PIN_Initialize)
+    SystemInit                               0x0000057d   Thumb Code    22  system_mk64f12.o(i.SystemInit)
+    init_data_bss                            0x00000599   Thumb Code    54  startup.o(i.init_data_bss)
+    main                                     0x000005e1   Thumb Code   120  framework.o(i.main)
+    Region$$Table$$Base                      0x00000660   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000660   Number         0  anon$$obj.o(Region$$Table)
     Image$$RW_m_data$$Base                   0x1fff0000   Number         0  anon$$obj.o ABSOLUTE
     Image$$ARM_LIB_STACK$$ZI$$Limit          0x20030000   Number         0  anon$$obj.o ABSOLUTE
 
@@ -263,9 +263,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000411
 
-  Load Region LR_m_text (Base: 0x00000410, Size: 0x0000023c, Max: 0x000ffbf0, ABSOLUTE)
+  Load Region LR_m_text (Base: 0x00000410, Size: 0x00000250, Max: 0x000ffbf0, ABSOLUTE)
 
-    Execution Region ER_m_text (Base: 0x00000410, Size: 0x0000023c, Max: 0x000ffbf0, ABSOLUTE)
+    Execution Region ER_m_text (Base: 0x00000410, Size: 0x00000250, Max: 0x000ffbf0, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -282,11 +282,11 @@ Memory Map of the image
     0x0000045c   0x00000024   Code   RO          253    .text               mc_w.l(init.o)
     0x00000480   0x00000030   Code   RO            7    i.ADCRead_H         framework.o
     0x000004b0   0x00000030   Code   RO            8    i.ADCRead_V         framework.o
-    0x000004e0   0x000000a0   Code   RO           91    i.PIN_Initialize    utils.o
-    0x00000580   0x0000001c   Code   RO          204    i.SystemInit        system_mk64f12.o
-    0x0000059c   0x00000048   Code   RO          169    i.init_data_bss     startup.o
-    0x000005e4   0x00000068   Code   RO            9    i.main              framework.o
-    0x0000064c   0x00000000   Data   RO          255    Region$$Table       anon$$obj.o
+    0x000004e0   0x0000009c   Code   RO           91    i.PIN_Initialize    utils.o
+    0x0000057c   0x0000001c   Code   RO          204    i.SystemInit        system_mk64f12.o
+    0x00000598   0x00000048   Code   RO          169    i.init_data_bss     startup.o
+    0x000005e0   0x00000080   Code   RO            9    i.main              framework.o
+    0x00000660   0x00000000   Data   RO          255    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_m_data (Base: 0x1fff0000, Size: 0x00000000, Max: 0x00010000, ABSOLUTE)
@@ -347,14 +347,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       200         22          0          0          0       5839   framework.o
+       224         20          0          0          0       5855   framework.o
         72         18          0          0          0        532   startup.o
         56         18       1040          0          0        800   startup_mk64f12.o
         28          6          0          0          0        445   system_mk64f12.o
-       160         34          0          0          0        425   utils.o
+       156         34          0          0          0        421   utils.o
 
     ----------------------------------------------------------------------
-       516         98       1040          0       2048       8041   Object Totals
+       536         96       1040          0       2048       8053   Object Totals
          0          0          0          0       2048          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -392,15 +392,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       572        114       1040          0       2048       7901   Grand Totals
-       572        114       1040          0       2048       7901   ELF Image Totals
-       572        114       1040          0          0          0   ROM Totals
+       592        112       1040          0       2048       7913   Grand Totals
+       592        112       1040          0       2048       7913   ELF Image Totals
+       592        112       1040          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1612 (   1.57kB)
+    Total RO  Size (Code + RO Data)                 1632 (   1.59kB)
     Total RW  Size (RW Data + ZI Data)              2048 (   2.00kB)
-    Total ROM Size (Code + RO Data + RW Data)       1612 (   1.57kB)
+    Total ROM Size (Code + RO Data + RW Data)       1632 (   1.59kB)
 
 ==============================================================================
 

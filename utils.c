@@ -17,8 +17,7 @@ void PIN_Initialize(void) {
   PTE->PDOR = 1 << 26;            /* switch Blue LED off  */
   PTE->PDDR = 1 << 26;            /* enable PTE26 as Output */
 	
-	PORTB->PCR[2] = (1 <<  8);
-	PORTC->PCR[11] = (1 <<  8);
+	PORTC->PCR[6] = (1 <<  8);
 	
 	SIM->SCGC6	  |= SIM_SCGC6_ADC0_MASK;
 	SIM->SCGC3    |= SIM_SCGC3_ADC1_MASK;

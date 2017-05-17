@@ -32,12 +32,18 @@ int main (void)
 		else {
 			PTB->PSOR   = 1 << 22;
 		}
-		if (ADCRead_V() < 35000 || ADCRead_V() > 60000) {
+		if (ADCRead_V() < 30000 || ADCRead_V() > 60000) {
 			PTE->PCOR   = 1 << 26;
 		}
 		else {
 			PTE->PSOR   = 1 << 26;
 		} 
+		if (!GPIOC_PDIR) {
+			PTB->PCOR = 1 << 21;
+		}
+		else {
+			PTB->PSOR = 1 << 21;
+		}
 	}
 	
 	
