@@ -147,7 +147,7 @@ public class Game extends Canvas {
 		// create a block of aliens (5 rows, by 12 aliens, spaced evenly)
 		alienCount = 0;
 		for (int row=0;row<5;row++) {
-			for (int x=0;x<1;x++) {
+			for (int x=0;x<10;x++) {
 				Entity alien = new AlienEntity(this,"sprites/suh1.gif",100+(x*50),(50)+row*30);
 				entities.add(alien);
 				alienCount++;
