@@ -1,10 +1,7 @@
 #include <fsl_device_registers.h>
 #include <stdlib.h>
 #include "utils.h"
-
-/*
-     Main program: entry point
-*/
+#include <stdio.h>
 
 unsigned short ADCRead_H (void) {
 	ADC0_SC1A = 12 & ADC_SC1_ADCH_MASK;
@@ -21,8 +18,8 @@ unsigned short ADCRead_V (void) {
 }
 
 
-int main (void)
-{
+int main (int argc, const char** argv) {
+	
 	PIN_Initialize();
 	
 	while (1) {
@@ -41,7 +38,7 @@ int main (void)
 		if (!GPIOC_PDIR) {
 			PTB->PCOR = 1 << 21;
 		}
-		else {
+		else if (GPIOC_PDIR) {
 			PTB->PSOR = 1 << 21;
 		}
 	}
