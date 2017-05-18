@@ -10,13 +10,13 @@ import java.util.TooManyListenersException;
 
 public class SerialTest implements SerialPortEventListener {
 	//passed from main GUI
-    GUI window = null;
-
+	
     //for containing the ports that will be found
     private Enumeration ports = null;
+    Game game;
     //map the port names to CommPortIdentifiers
-    private HashMap portMap = new HashMap();
-
+    private HashMap portMap = new HashMap<String, Object>();
+    portMap.put("COMM4", null);
     //this is the object that contains the opened port
     private CommPortIdentifier selectedPortIdentifier = null;
     private SerialPort serialPort = null;
@@ -25,9 +25,7 @@ public class SerialTest implements SerialPortEventListener {
     private InputStream input = null;
     private OutputStream output = null;
 
-    //just a boolean flag that i use for enabling
-    //and disabling buttons depending on whether the program
-    //is connected to a serial port or not
+
     private boolean bConnected = false;
 
     //the timeout value for connecting with the port
@@ -37,10 +35,6 @@ public class SerialTest implements SerialPortEventListener {
     final static int SPACE_ASCII = 32;
     final static int DASH_ASCII = 45;
     final static int NEW_LINE_ASCII = 10;
-
-    //a string for recording what goes on in the program
-    //this string is written to the GUI
-    String logText = "";
     
     
     
@@ -58,7 +52,6 @@ public class SerialTest implements SerialPortEventListener {
             //get only serial ports
             if (curPort.getPortType() == CommPortIdentifier.PORT_SERIAL)
             {
-                window.cboxPorts.addItem(curPort.getName());
                 portMap.put(curPort.getName(), curPort);
             }
         }
@@ -73,7 +66,7 @@ public class SerialTest implements SerialPortEventListener {
     //an exception is generated
     public void connect()
     {
-        String selectedPort = (String)window.cboxPorts.getSelectedItem();
+        String selectedPort = "some IP";
         selectedPortIdentifier = (CommPortIdentifier)portMap.get(selectedPort);
 
         CommPort commPort = null;
@@ -81,36 +74,22 @@ public class SerialTest implements SerialPortEventListener {
         try
         {
             //the method below returns an object of type CommPort
-            commPort = selectedPortIdentifier.open("TigerControlPanel", TIMEOUT);
+            commPort = selectedPortIdentifier.open("Port Control Panel", TIMEOUT);
             //the CommPort object can be casted to a SerialPort object
             serialPort = (SerialPort)commPort;
 
-            //for controlling GUI elements
             setConnected(true);
-
-            //logging
-            logText = selectedPort + " opened successfully.";
-            window.txtLog.setForeground(Color.black);
-            window.txtLog.append(logText + "n");
 
             //CODE ON SETTING BAUD RATE ETC OMITTED
             //XBEE PAIR ASSUMED TO HAVE SAME SETTINGS ALREADY
 
             //enables the controls on the GUI if a successful connection is made
-            window.keybindingController.toggleControls();
         }
         catch (PortInUseException e)
         {
-            logText = selectedPort + " is in use. (" + e.toString() + ")";
-
-            window.txtLog.setForeground(Color.RED);
-            window.txtLog.append(logText + "n");
         }
         catch (Exception e)
-        {
-            logText = "Failed to open " + selectedPort + "(" + e.toString() + ")";
-            window.txtLog.append(logText + "n");
-            window.txtLog.setForeground(Color.RED);
+        {    
         }
     }
     
@@ -132,9 +111,7 @@ public class SerialTest implements SerialPortEventListener {
             return successful;
         }
         catch (IOException e) {
-            logText = "I/O Streams failed to open. (" + e.toString() + ")";
-            window.txtLog.setForeground(Color.red);
-            window.txtLog.append(logText + "n");
+         
             return successful;
         }
     }
@@ -151,9 +128,7 @@ public class SerialTest implements SerialPortEventListener {
         }
         catch (TooManyListenersException e)
         {
-            logText = "Too many listeners. (" + e.toString() + ")";
-            window.txtLog.setForeground(Color.red);
-            window.txtLog.append(logText + "n");
+       
         }
     }
     
@@ -172,18 +147,11 @@ public class SerialTest implements SerialPortEventListener {
             input.close();
             output.close();
             setConnected(false);
-            window.keybindingController.toggleControls();
 
-            logText = "Disconnected.";
-            window.txtLog.setForeground(Color.red);
-            window.txtLog.append(logText + "n");
         }
         catch (Exception e)
         {
-            logText = "Failed to close " + serialPort.getName()
-                              + "(" + e.toString() + ")";
-            window.txtLog.setForeground(Color.red);
-            window.txtLog.append(logText + "n");
+          
         }
     }
     
@@ -191,28 +159,17 @@ public class SerialTest implements SerialPortEventListener {
   //what happens when data is received
     //pre style="font-size: 11px;": serial event is triggered
     //post: processing on the data it reads
-    public void serialEvent(SerialPortEvent evt) {
+    public String serialEvent(SerialPortEvent evt) {
         if (evt.getEventType() == SerialPortEvent.DATA_AVAILABLE)
         {
             try
             {
-                byte singleData = (byte)input.read();
-
-                if (singleData != NEW_LINE_ASCII)
-                {
-                    logText = new String(new byte[] {singleData});
-                    window.txtLog.append(logText);
-                }
-                else
-                {
-                    window.txtLog.append("n");
-                }
+                String singleData = (String)(input.read());
+                return (String)(singleData);
+        
             }
             catch (Exception e)
             {
-                logText = "Failed to read data. (" + e.toString() + ")";
-                window.txtLog.setForeground(Color.red);
-                window.txtLog.append(logText + "n");
             }
         }
     }
@@ -238,14 +195,11 @@ public class SerialTest implements SerialPortEventListener {
         }
         catch (Exception e)
         {
-            logText = "Failed to write data. (" + e.toString() + ")";
-            window.txtLog.setForeground(Color.red);
-            window.txtLog.append(logText + "n");
         }
     }
     
     
-    private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnConnectActionPerformed() {
         communicator.connect();
         if (communicator.getConnected() == true)
         {
@@ -255,6 +209,17 @@ public class SerialTest implements SerialPortEventListener {
             }
         }
     }
+    
+    public static void main(String[] args) {
+    	while(true){
+    		searchForPorts();connect();
+        	game.updateMove(serialEventspe)
+    	}
+    	
+    	
+    }
+    
+
     
     
 	

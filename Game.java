@@ -256,7 +256,60 @@ public class Game extends Canvas {
 		else {
 			return;
 		}
+	
+	}
+	
+	public void updateGame(String input) {
+		input = input.substring(input.indexOf('<'), input.indexOf('<') + 2);
+		if (input == "A") {
+			upPressed = true;
+		}
+		if (input == "B") {
+			upPressed = true;
+			rightPressed = true;
+			downPressed = false;
+			leftPressed = false;
+		}
+		if (input == "C") {
+			rightPressed = true;
+			downPressed = false;
+			leftPressed = false;
+			upPressed = false;
+		}
+		if (input == "D") {
+			rightPressed = true;
+			downPressed = true;
+			upPressed = false;
+			leftPressed = false;
+		}
 		
+		if (input == "E") {
+			downPressed = true;
+			upPressed = false;
+			leftPressed = false;
+			rightPressed = false;
+		}
+		if (input == "F") {
+			downPressed = true;
+			leftPressed = true;
+			rightPressed = false;
+			upPressed = false;
+		}
+		if (input == "G") {
+			leftPressed = true;
+			downPressed = false;
+			rightPressed = false;
+			upPressed = false;
+		}
+		if (input == "H") {
+			leftPressed = true;
+			upPressed = true;
+			downPressed = false;
+			rightPressed = false;
+		}
+		if(input == "I"){
+			firePressed = true;
+		}
 		
 	}
 	
