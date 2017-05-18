@@ -49,7 +49,7 @@ public class Game extends Canvas {
 	/** The time at which ammo was spawned */
 	protected long lastAmmoSpawn = 0;
 	/** The interval between ammo spawns */
-	private long ammoInterval = 4*1000;
+	private long ammoInterval = 8*1000;
 	
 	/** The message to display which waiting for a key press */
 	private String message = "";

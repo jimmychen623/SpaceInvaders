@@ -8,7 +8,7 @@ public class ShipEntity extends Entity{
 		super(ref, x, y);
 		// TODO Auto-generated constructor stub
 		this.game = game;
-		this.ammo = 5;
+		this.ammo = 25;
 	}
 
 	
