@@ -44,12 +44,12 @@
 
 // <e> I2C0 (Inter-Integrated Circuit Interface 0) [Driver_I2C0]
 // <i> Enable or disable Driver_I2C0 in component ::CMSIS Driver:I2C
-#define RTE_I2C0                        0
+#define RTE_I2C0                        1
 
 //   <o0> I2C0_SDA <0=>PTB1 <1=>PTB3 <2=>PTD3 <3=>PTD9 <4=>PTE25
 //   <o1> I2C0_SCL <0=>PTB0 <1=>PTB2 <2=>PTD2 <3=>PTD8 <4=>PTE24
-#define RTE_I2C0_SDA_PIN_ID             0
-#define RTE_I2C0_SCL_PIN_ID             0
+#define RTE_I2C0_SDA_PIN_ID             4
+#define RTE_I2C0_SCL_PIN_ID             4
 
 #if   (RTE_I2C0_SDA_PIN_ID == 0) /* PTB1  */
   #define RTE_I2C0_SDA_PIN    1
@@ -216,7 +216,7 @@
 
 // <e> SPI1 (Serial Peripheral Interface 1) [Driver_SPI1]
 // <i> Enable or disable Driver_SPI1 in component ::CMSIS Driver:SPI
-#define RTE_SPI1                        0
+#define RTE_SPI1                        1
 
 //   <o> Peripheral Chip Select <0=>PCS0 <1=>PCS1 <2=>PCS2
 //                              <3=>PCS3
@@ -226,21 +226,21 @@
 
 // <e> SPI2 (Serial Peripheral Interface 0) [Driver_SPI2]
 // <i> Enable or disable Driver_SPI2 in component ::CMSIS Driver:SPI
-#define RTE_SPI2                        0
+#define RTE_SPI2                        1
 
 //   <o> Peripheral Chip Select <0=>PCS0 <1=>PCS1
-#define RTE_SPI2_PCS                    0
+#define RTE_SPI2_PCS                    1
 
 // </e>
 
 // <e> UART0 (Universal Asynchronous Receiver/Transmiter 0) [Driver_USART0]
 // <i> Enable or disable Driver_USART0 in component ::CMSIS Driver:USART
-#define RTE_UART0                       0
+#define RTE_UART0                       1
 
 //   <o0> DMA Rx <0=>Disable <1=>Enable
 //   <o1> DMA Tx <0=>Disable <1=>Enable
-#define RTE_UART0_DMA_RX                0
-#define RTE_UART0_DMA_TX                0
+#define RTE_UART0_DMA_RX                1
+#define RTE_UART0_DMA_TX                1
 
 // </e>
 

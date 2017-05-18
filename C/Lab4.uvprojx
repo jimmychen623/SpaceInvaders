@@ -394,6 +394,16 @@
               <FileType>5</FileType>
               <FilePath>.\utils.h</FilePath>
             </File>
+            <File>
+              <FileName>udpserver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\udpserver.c</FilePath>
+            </File>
+            <File>
+              <FileName>file.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\file.txt</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
