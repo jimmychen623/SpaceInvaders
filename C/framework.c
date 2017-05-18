@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "utils.h"
 #include <stdio.h>
+#include <board.h>
+#include <fsl_debug_console.h>
+
 
 unsigned short ADCRead_H (void) {
 	ADC0_SC1A = 12 & ADC_SC1_ADCH_MASK;
@@ -20,58 +23,53 @@ unsigned short ADCRead_V (void) {
 
 int main (void) {
 	
-	//PIN_Initialize();
-	FILE *fuck = fopen("./file.txt", "a");
+	hardware_init();
 	
-	char *hi = "h";
-	int age;
-	fprintf(fuck,"%s", hi);
-	//fputs("fuck C", fuck);
-	//scanf("%d", &age);
-	printf("my age is %d", age);
-	//fflush(stdout);
-	//fclose(fuck);
-	while (0) {
-		if (ADCRead_H() < 35000) {
-			PTB->PCOR   = 1 << 22;
-			printf("<L>");
-			//fprintf(fuck,"<L>");
-			fflush(stdout);
+	PIN_Initialize();
+	
+	while (1) {
+		if ((ADCRead_H() < 35000) & (ADCRead_V() > 60000)) {
+			// NorthWest
+			debug_printf("H");
+		}
+		else if ((ADCRead_H() < 35000) & (ADCRead_V() < 30000)) {
+			// SouthWest
+			debug_printf("F");
 		} 
+		else if (ADCRead_H() < 35000) {
+			// West
+			debug_printf("G");
+		}
+		else if ((ADCRead_H() > 65000) & (ADCRead_V() > 60000)) {
+			// NorthEast
+			debug_printf("B");
+		}
+		else if ((ADCRead_H() > 65000) & (ADCRead_V() < 30000)) {
+			// SouthEast
+			debug_printf("D");
+		}
 		else if (ADCRead_H() > 65000) {
-			PTB->PCOR = 1 << 22;
-			printf("<R>");
-			fflush(stdout);
+			// East
+			debug_printf("C");
 		}
-		else {
-			PTB->PSOR   = 1 << 22;
-			printf("<0>");
-			fflush(stdout);
-		}
-		if (ADCRead_V() < 30000) {
-			PTE->PCOR   = 1 << 26;
-			printf("<D>");
-			fflush(stdout);
+		else if (ADCRead_V() < 30000) {
+			// South
+			debug_printf("E");
 		}
 		else if (ADCRead_V() > 60000) {
-			PTE->PCOR = 1 << 26;
-			printf("<U>");
-			fflush(stdout);
+			// North
+			debug_printf("A");
 		}
 		else {
-			PTE->PSOR   = 1 << 26;
-			printf("<0>");
-			fflush(stdout);
-		} 
+			// Center
+			debug_printf("O");
+		}
+		delay();
 		if (!GPIOC_PDIR) {
-			PTB->PCOR = 1 << 21;
-			printf("<B>");
-			fflush(stdout);
-		}
-		else {
-			PTB->PSOR = 1 << 21;
-			printf("<0>");
-			fflush(stdout);
+			//PTB->PCOR = 1 << 21;
+			debug_printf("I");
+			delay();
+			
 		}
 	}
 	

@@ -1,0 +1,9 @@
+.\objects\print_scan.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\utilities\src\print_scan.c
+.\objects\print_scan.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\utilities\src\print_scan.h
+.\objects\print_scan.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\print_scan.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\print_scan.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\print_scan.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\print_scan.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\print_scan.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\print_scan.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h

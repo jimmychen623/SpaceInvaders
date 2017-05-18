@@ -1,6 +1,7 @@
 --cpu=Cortex-M4 --fpu=SoftVFP
 ".\objects\framework.o"
 ".\objects\utils.o"
+".\objects\udpserver.o"
 ".\objects\startup.o"
 ".\objects\startup_mk64f12.o"
 ".\objects\system_mk64f12.o"
