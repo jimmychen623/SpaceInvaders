@@ -48,7 +48,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>SpaceInvaders</OutputName>
+          <OutputName>fuckthis</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -132,12 +132,12 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -544,7 +544,7 @@
           <targetInfo name="Target 1"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="examples\frdmk64f\hardware_init.c" version="0.0.0">
+      <file attr="config" category="source" name="examples\frdmk64f\hardware_init.c">
         <instance index="0">RTE\Device\MK64FN1M0VLL12\hardware_init.c</instance>
         <component Cclass="Device" Cgroup="KSDK Configuration" Csub="FRDM-K64F" Cvendor="Keil" Cversion="1.2.0" condition="Kinetis FRDM-K64F"/>
         <package name="Kinetis_SDK_DFP" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="Keil" version="2.2.0"/>

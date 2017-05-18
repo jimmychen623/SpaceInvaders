@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'fuckthis' 
+ * Project: 'spaceinvaders' 
  * Target:  'Target 1' 
  */
 
