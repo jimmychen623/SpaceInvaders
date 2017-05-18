@@ -335,40 +335,40 @@ Image Symbol Table
     RESET                                    0x00000000   Section     1024  startup_mk64f12.o(RESET)
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/fopen.c           0x00000000   Number         0  fopen.o ABSOLUTE
     ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc.o ABSOLUTE
     ../clib/microlib/stdio/semi.s            0x00000000   Number         0  semi.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
-    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusesemip.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusesemip.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
@@ -385,7 +385,6 @@ Image Symbol Table
     framework.c                              0x00000000   Number         0  framework.o ABSOLUTE
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
     init.s                                   0x00000000   Number         0  init.o ABSOLUTE
-    udpserver.c                              0x00000000   Number         0  udpserver.o ABSOLUTE
     utils.c                                  0x00000000   Number         0  utils.o ABSOLUTE
     utils.c                                  0x00000000   Number         0  utils.o ABSOLUTE
     FlashConfig                              0x00000400   Section       16  startup_mk64f12.o(FlashConfig)
@@ -619,33 +618,33 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000410   0x00000000   Code   RO          243  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000410   0x00000004   Code   RO          509    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x00000414   0x00000004   Code   RO          512    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00000418   0x00000000   Code   RO          514    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00000418   0x00000000   Code   RO          516    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00000418   0x00000008   Code   RO          517    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000420   0x00000000   Code   RO          519    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000420   0x00000000   Code   RO          521    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000420   0x00000004   Code   RO          510    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
-    0x00000424   0x00000038   Code   RO          203    .text               startup_mk64f12.o
-    0x0000045c   0x0000002c   Code   RO          526    .text               mc_w.l(uidiv.o)
-    0x00000488   0x00000024   Code   RO          541    .text               mc_w.l(init.o)
-    0x000004ac   0x00000000   Code   RO          543    .text               mc_w.l(semi.o)
-    0x000004ac   0x00000000   Code   RO          550    .text               mc_w.l(iusesemip.o)
-    0x000004ac   0x0000001c   Code   RO          211    i.SystemInit        system_mk64f12.o
-    0x000004c8   0x0000001c   Code   RO          336    i.__0fprintf$3      mc_w.l(printf3.o)
-    0x000004e4   0x00000020   Code   RO          337    i.__0printf$3       mc_w.l(printf3.o)
-    0x00000504   0x0000000e   Code   RO          555    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00000512   0x00000002   Code   RO          556    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00000514   0x0000000e   Code   RO          557    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00000410   0x00000000   Code   RO          240  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000410   0x00000004   Code   RO          506    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x00000414   0x00000004   Code   RO          509    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000418   0x00000000   Code   RO          511    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000418   0x00000000   Code   RO          513    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000418   0x00000008   Code   RO          514    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000420   0x00000000   Code   RO          516    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000420   0x00000000   Code   RO          518    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000420   0x00000004   Code   RO          507    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x00000424   0x00000038   Code   RO          200    .text               startup_mk64f12.o
+    0x0000045c   0x0000002c   Code   RO          523    .text               mc_w.l(uidiv.o)
+    0x00000488   0x00000024   Code   RO          538    .text               mc_w.l(init.o)
+    0x000004ac   0x00000000   Code   RO          540    .text               mc_w.l(semi.o)
+    0x000004ac   0x00000000   Code   RO          547    .text               mc_w.l(iusesemip.o)
+    0x000004ac   0x0000001c   Code   RO          208    i.SystemInit        system_mk64f12.o
+    0x000004c8   0x0000001c   Code   RO          333    i.__0fprintf$3      mc_w.l(printf3.o)
+    0x000004e4   0x00000020   Code   RO          334    i.__0printf$3       mc_w.l(printf3.o)
+    0x00000504   0x0000000e   Code   RO          552    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00000512   0x00000002   Code   RO          553    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00000514   0x0000000e   Code   RO          554    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x00000522   0x00000002   PAD
-    0x00000524   0x000001b8   Code   RO          344    i._printf_core      mc_w.l(printf3.o)
-    0x000006dc   0x00000012   Code   RO          523    i.fputc             mc_w.l(fputc.o)
+    0x00000524   0x000001b8   Code   RO          341    i._printf_core      mc_w.l(printf3.o)
+    0x000006dc   0x00000012   Code   RO          520    i.fputc             mc_w.l(fputc.o)
     0x000006ee   0x00000002   PAD
-    0x000006f0   0x00000048   Code   RO          176    i.init_data_bss     startup.o
+    0x000006f0   0x00000048   Code   RO          173    i.init_data_bss     startup.o
     0x00000738   0x00000050   Code   RO            9    i.main              framework.o
-    0x00000788   0x00000010   Data   RO          553    Region$$Table       anon$$obj.o
+    0x00000788   0x00000010   Data   RO          550    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_m_data (Base: 0x1fff0000, Size: 0x00000000, Max: 0x00010000, ABSOLUTE)
@@ -657,7 +656,7 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000004   Data   RW          525    .data               mc_w.l(stdout.o)
+    0x20000000   0x00000004   Data   RW          522    .data               mc_w.l(stdout.o)
 
 
     Execution Region ARM_LIB_HEAP (Base: 0x20000004, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
@@ -688,7 +687,7 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000400   Data   RO          201    RESET               startup_mk64f12.o
+    0x00000000   0x00000400   Data   RO          198    RESET               startup_mk64f12.o
 
 
 
@@ -698,7 +697,7 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000400   0x00000010   Data   RO          202    FlashConfig         startup_mk64f12.o
+    0x00000400   0x00000010   Data   RO          199    FlashConfig         startup_mk64f12.o
 
 
 ==============================================================================
