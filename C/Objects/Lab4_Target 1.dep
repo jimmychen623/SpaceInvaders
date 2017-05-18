@@ -1,33 +1,33 @@
 Dependencies for Project 'Lab4', Target 'Target 1': (DO NOT MODIFY !)
-F (.\C\framework.c)(0x591CCD7E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\framework.o --omf_browse .\objects\framework.crf --depend .\objects\framework.d)
+F (.\framework.c)(0x591CCD7E)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\framework.o --omf_browse .\objects\framework.crf --depend .\objects\framework.d)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\fsl_device_registers.h)(0x552C9E0A)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6E7B8)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm4.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_compiler.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_armcc.h)(0x58261ADE)
-I (C:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
+I (C:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12_extension.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\fsl_bitaccess.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6E7B8)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12_features.h)(0x552C9E06)
-I (C\utils.h)(0x591B2D61)
+I (utils.h)(0x591B2D61)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6E7B8)
-F (.\C\utils.c)(0x591CAC0D)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\utils.o --omf_browse .\objects\utils.crf --depend .\objects\utils.d)
+F (.\utils.c)(0x591CAC0D)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\utils.o --omf_browse .\objects\utils.crf --depend .\objects\utils.d)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\fsl_device_registers.h)(0x552C9E0A)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6E7B8)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm4.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_compiler.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_armcc.h)(0x58261ADE)
-I (C:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
+I (C:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12_extension.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\fsl_bitaccess.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6E7B8)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12_features.h)(0x552C9E06)
-I (C\utils.h)(0x591B2D61)
-F (.\C\utils.h)(0x591B2D61)()
-F (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\startup.c)(0x552C5272)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\startup.o --omf_browse .\objects\startup.crf --depend .\objects\startup.d)
+I (utils.h)(0x591B2D61)
+F (.\utils.h)(0x591B2D61)()
+F (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\startup.c)(0x552C5272)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\startup.o --omf_browse .\objects\startup.crf --depend .\objects\startup.d)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\startup.h)(0x552C5272)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\fsl_device_registers.h)(0x552C9E0A)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12.h)(0x552C9E06)
@@ -35,7 +35,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6E7B8)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm4.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_compiler.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_armcc.h)(0x58261ADE)
-I (C:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
+I (C:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12_extension.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\fsl_bitaccess.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6E7B8)
@@ -43,15 +43,15 @@ I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\inclu
 F (RTE\Device\MK64FN1M0VLL12\MK64FN1M0xxx12_flash.scf)(0x552C9E06)()
 F (RTE\Device\MK64FN1M0VLL12\MK64FN1M0xxx12_ram.scf)(0x552C9E06)()
 F (RTE\Device\MK64FN1M0VLL12\RTE_Device.h)(0x558315AE)()
-F (RTE\Device\MK64FN1M0VLL12\startup_MK64F12.s)(0x552C9E06)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices--pd "__UVISION_VERSION SETA 522" --pd "_RTE_ SETA 1" --pd "CPU_MK64FN1M0VLL12 SETA 1"--list .\listings\startup_mk64f12.lst --xref -o .\objects\startup_mk64f12.o --depend .\objects\startup_mk64f12.d)
-F (RTE\Device\MK64FN1M0VLL12\system_MK64F12.c)(0x552C9E06)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\system_mk64f12.o --omf_browse .\objects\system_mk64f12.crf --depend .\objects\system_mk64f12.d)
+F (RTE\Device\MK64FN1M0VLL12\startup_MK64F12.s)(0x552C9E06)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices--pd "__UVISION_VERSION SETA 522" --pd "_RTE_ SETA 1" --pd "CPU_MK64FN1M0VLL12 SETA 1"--list .\listings\startup_mk64f12.lst --xref -o .\objects\startup_mk64f12.o --depend .\objects\startup_mk64f12.d)
+F (RTE\Device\MK64FN1M0VLL12\system_MK64F12.c)(0x552C9E06)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12-IC:\Users\meghan\Desktop\SpaceInvaders\C\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices-D__UVISION_VERSION="522" -D_RTE_ -DCPU_MK64FN1M0VLL12 --C99-o .\objects\system_mk64f12.o --omf_browse .\objects\system_mk64f12.crf --depend .\objects\system_mk64f12.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6E7B8)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\fsl_device_registers.h)(0x552C9E0A)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\core_cm4.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_compiler.h)(0x58261ADE)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include\cmsis_armcc.h)(0x58261ADE)
-I (C:\Users\meghan\Desktop\SpaceInvaders\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
+I (C:\Users\meghan\Desktop\SpaceInvaders\C\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\MK64F12_extension.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12\include\fsl_bitaccess.h)(0x552C9E06)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F6E7B8)
