@@ -5,7 +5,7 @@
  */
 public class AlienEntity extends Entity {
 	/** The initial speed at which the alien moves horizontally */
-	private double moveSpeed = 100;
+	private double moveSpeed = 30;
 	/** The game in which the entity exists */
 	private Game game;
 	private int health = 2;

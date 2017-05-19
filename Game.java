@@ -39,7 +39,7 @@ public class Game extends Canvas {
 	/** The entity representing the player */
 	private ShipEntity ship;
 	/** The speed at which the player's ship should move (pixels/sec) */
-	private double moveSpeed = 300;
+	private double moveSpeed = 100;
 	/** The time at which last fired a shot */
 	private long lastFire = 0;
 	/** The interval between our players shot (ms) */
@@ -70,6 +70,8 @@ public class Game extends Canvas {
 	
 	/** True if ammo has been taken */
 	protected boolean hasTakenAmmo = true;
+	
+	private SerialTest serialReader;
 	/**
 	 * Construct our game and set it running.
 	 */
@@ -256,61 +258,147 @@ public class Game extends Canvas {
 		else {
 			return;
 		}
-	
+		
+		
 	}
 	
-	public void updateGame(String input) {
-		input = input.substring(input.indexOf('<'), input.indexOf('<') + 2);
-		if (input == "A") {
+	public void parseCommands(String s) {
+		//System.out.println("parseCommand");
+		//System.out.println("parsed: " + s);
+		if(s == null) { return;}
+		if(s.contains("A")){
+			//System.out.println("upprss set to TRUE");
 			upPressed = true;
-		}
-		if (input == "B") {
-			upPressed = true;
-			rightPressed = true;
 			downPressed = false;
-			leftPressed = false;
-		}
-		if (input == "C") {
-			rightPressed = true;
-			downPressed = false;
-			leftPressed = false;
-			upPressed = false;
-		}
-		if (input == "D") {
-			rightPressed = true;
-			downPressed = true;
-			upPressed = false;
-			leftPressed = false;
-		}
-		
-		if (input == "E") {
-			downPressed = true;
-			upPressed = false;
 			leftPressed = false;
 			rightPressed = false;
+			firePressed = false;
 		}
-		if (input == "F") {
+		if(s.contains("B")){
+			upPressed = true;
+			downPressed = false;
+			leftPressed = false;
+			rightPressed = true;
+			firePressed = false;
+		}
+		if(s.contains("C")){
+			upPressed = false;
+			downPressed = false;
+			leftPressed = false;
+			rightPressed = true;
+			firePressed = false;
+		}
+		if(s.contains("D")){
+			upPressed = false;
+			downPressed = true;
+			leftPressed = false;
+			rightPressed = true;
+			firePressed = false;
+		}
+		if(s.contains("E")){
+			upPressed = false;
+			downPressed = true;
+			leftPressed = false;
+			rightPressed = false;
+			firePressed = false;
+		}
+		if(s.contains("F")){
+			upPressed = false;
 			downPressed = true;
 			leftPressed = true;
 			rightPressed = false;
-			upPressed = false;
+			firePressed = false;
 		}
-		if (input == "G") {
-			leftPressed = true;
+		if(s.contains("G")){
+			upPressed = false;
 			downPressed = false;
-			rightPressed = false;
-			upPressed = false;
-		}
-		if (input == "H") {
 			leftPressed = true;
+			rightPressed = false;
+			firePressed = false;
+		}
+		if(s.contains("H")){
 			upPressed = true;
 			downPressed = false;
+			leftPressed = true;
 			rightPressed = false;
+			firePressed = false;
 		}
-		if(input == "I"){
+		if(s.contains("O")){
+			upPressed = false;
+			downPressed = false;
+			leftPressed = false;
+			rightPressed = false;
+			firePressed = false;
+		}
+		if(s.contains("L")){
+			//System.out.println("upprss set to TRUE");
+			upPressed = true;
+			downPressed = false;
+			leftPressed = false;
+			rightPressed = false;
 			firePressed = true;
 		}
-		
+		if(s.contains("M")){
+			upPressed = true;
+			downPressed = false;
+			leftPressed = false;
+			rightPressed = true;
+			firePressed = true;
+		}
+		if(s.contains("N")){
+			upPressed = false;
+			downPressed = false;
+			leftPressed = false;
+			rightPressed = true;
+			firePressed = true;
+		}
+		if(s.contains("P")){
+			upPressed = false;
+			downPressed = true;
+			leftPressed = false;
+			rightPressed = true;
+			firePressed = true;
+		}
+		if(s.contains("Q")){
+			upPressed = false;
+			downPressed = true;
+			leftPressed = false;
+			rightPressed = false;
+			firePressed = true;
+		}
+		if(s.contains("R")){
+			upPressed = false;
+			downPressed = true;
+			leftPressed = true;
+			rightPressed = false;
+			firePressed = true;
+		}
+		if(s.contains("S")){
+			upPressed = false;
+			downPressed = false;
+			leftPressed = true;
+			rightPressed = false;
+			firePressed = true;
+		}
+		if(s.contains("T")){
+			upPressed = true;
+			downPressed = false;
+			leftPressed = true;
+			rightPressed = false;
+			firePressed = true;
+		}
+		if(s.contains("U")){
+			upPressed = false;
+			downPressed = false;
+			leftPressed = false;
+			rightPressed = false;
+			firePressed = true;
+		}
+		if(s.contains("Z")){
+			tryToSpawnAmmo();
+		}
+	
+
 	}
 	
 	/**
@@ -325,7 +413,16 @@ public class Game extends Canvas {
 	 */
 	public void gameLoop() {
 		long lastLoopTime = System.currentTimeMillis();
-		
+		serialReader = new SerialTest();
+		new Thread(serialReader).start();
+		try {
+			Thread.sleep(200);
+			System.out.println("hello world");
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		int updateCounter = 0;
 		// keep looping round til the game ends
 		while (gameRunning) {
 			//DO STUFF
@@ -334,6 +431,7 @@ public class Game extends Canvas {
 			// move this loop
 			long delta = System.currentTimeMillis() - lastLoopTime;
 			lastLoopTime = System.currentTimeMillis();
+			
 			// Get hold of a graphics context for the accelerated 
 			// surface and blank it out
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
@@ -342,6 +440,7 @@ public class Game extends Canvas {
 			g.setColor(Color.WHITE);
 			g.drawString("Ammo: "+ ship.getAmmo(), 25, 25);
 			
+			//System.out.println("Up pressed value is : " + upPressed);
 			// loop through entites, asking each one to move itself
 			if (!waitingForKeyPress) {
 				for (int i=0;i<entities.size();i++) {
@@ -400,7 +499,8 @@ public class Game extends Canvas {
 			g.dispose();
 			strategy.show();
 			
-			
+			parseCommands(serialReader.getReading());
+			//System.out.println("reading is " + serialReader.getReading());
 			ship.setHorizontalMovement(0);
 			ship.setVerticalMovement(0);
 			
@@ -421,7 +521,10 @@ public class Game extends Canvas {
 			if (firePressed) {
 				tryToFire();
 			}
-			tryToSpawnAmmo();
+			//tryToSpawnAmmo();
+			//System.out.println(serialReader.getReading());
+			
+			
 			
 			//try {Thread.sleep(100);} catch (Exception e) {}
 			
@@ -447,59 +550,13 @@ private int pressCount = 1;
 		 *
 		 * @param e The details of the key that was pressed 
 		 */
-		public void keyPressed(KeyEvent e) {
-			// if we're waiting for an "any key" typed then we don't 
-			// want to do anything with just a "press"
-			if (waitingForKeyPress) {
-				return;
-			}
-			
-			
-			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-				leftPressed = true;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				rightPressed = true;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_UP) {
-				upPressed = true;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-				downPressed = true;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-				firePressed = true;
-			}
-		} 
-
+		
 		/**
 		 * Notification from AWT that a key has been released.
 		 *
 		 * @param e The details of the key that was released 
 		 */
-		public void keyReleased(KeyEvent e) {
-			// if we're waiting for an "any key" typed then we don't 
-			// want to do anything with just a "released"
-			if (waitingForKeyPress) {
-				return;
-			}
-			
-			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-				leftPressed = false;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				rightPressed = false;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_UP) {
-				upPressed = false;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-				downPressed = false;
-			}
-			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-				firePressed = false;
-			}
-		}
+		
 
 
 		/**
