@@ -117,6 +117,7 @@ public static void main(String[] args){
     System.out.println("Here is the standard output of the command:\n");
     while ((s = stdInput.readLine()) != null) {
         System.out.println(s);
+        
     }
     
     // read any errors from the attempted command
