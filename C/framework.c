@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <board.h>
 #include <fsl_debug_console.h>
+#include <signal.h>
 
 
 unsigned short ADCRead_H (void) {
@@ -25,7 +26,8 @@ int main (void) {
 	
 	hardware_init();
 	
-	PIN_Initialize();
+	Code_Initialize();
+	NVIC_EnableIRQ(PIT0_IRQn);
 	
 	while (1) {
 		if ((ADCRead_H() < 35000) & (ADCRead_V() > 60000)) {
@@ -136,3 +138,15 @@ int main (void) {
 	
 }
 
+void PIT0_IRQHandler (void) {
+	
+	debug_printf("Z\r\n");
+	//LEDGreen_Toggle();
+	
+				//clears interrupt flag
+	NVIC_EnableIRQ(PIT0_IRQn);
+	PIT->MCR = 0;
+	PIT->CHANNEL[0].LDVAL=DEFAULT_SYSTEM_CLOCK * 20;
+	PIT->CHANNEL[0].TCTRL |= 3;
+	PIT->CHANNEL[0].TFLG=0xFFFFFFFFu;
+}

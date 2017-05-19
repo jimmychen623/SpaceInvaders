@@ -25,3 +25,4 @@
 .\objects\framework.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\utilities\inc\fsl_debug_console.h
 .\objects\framework.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\osa\inc\fsl_os_abstraction.h
 .\objects\framework.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\osa\inc\fsl_os_abstraction_bm.h
+.\objects\framework.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\signal.h

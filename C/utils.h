@@ -1,7 +1,8 @@
 #ifndef __UTILS_H__
 #define __UTILS_H__
 
-void PIN_Initialize(void);
+void Code_Initialize(void);
+void PIT0_IRQHandler(void);
 void LEDRed_Toggle (void);
 void LEDBlue_Toggle (void);
 void LEDGreen_Toggle (void);

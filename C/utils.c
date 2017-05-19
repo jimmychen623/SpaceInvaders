@@ -1,10 +1,11 @@
 #include <fsl_device_registers.h>
 #include "utils.h"
 
+
 /*----------------------------------------------------------------------------
   Function that initializes pins
  *----------------------------------------------------------------------------*/
-void PIN_Initialize(void) {
+void Code_Initialize(void) {
 
   SIM->SCGC5    |= (1 <<  10) | (1 <<  11) | (1 <<  12) | (1 <<  13);  /* Enable Clock to Port B & C & E */ 
   PORTB->PCR[22] = (1 <<  8);                /* Pin PTB22 is GPIO */
@@ -25,7 +26,13 @@ void PIN_Initialize(void) {
 	ADC0_SC1A			|= ADC_SC1_ADCH(31);
 	ADC1_CFG1			|= ADC_CFG1_MODE(3);
 	ADC1_SC1A			|= ADC_SC1_ADCH(31);
-
+	
+	//set up the PIT
+	SIM->SCGC6 |= SIM_SCGC6_PIT_MASK;
+	PIT->MCR = 0;
+	PIT->CHANNEL[0].LDVAL = DEFAULT_SYSTEM_CLOCK * 20;
+	PIT->CHANNEL[0].TCTRL |= 3;
+	
 }
 
 /*----------------------------------------------------------------------------
