@@ -30,47 +30,105 @@ int main (void) {
 	while (1) {
 		if ((ADCRead_H() < 35000) & (ADCRead_V() > 60000)) {
 			// NorthWest
-			debug_printf("H");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("T\r\n");
+			}
+			else {
+				debug_printf("H\r\n");
+			}
+			//fflush(stdout);
+			delay();
 		}
 		else if ((ADCRead_H() < 35000) & (ADCRead_V() < 30000)) {
 			// SouthWest
-			debug_printf("F");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("R\r\n");
+			}
+			else {
+				debug_printf("F\r\n");
+			}
+			delay();
 		} 
 		else if (ADCRead_H() < 35000) {
 			// West
-			debug_printf("G");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("S\r\n");
+			}
+			else {
+				debug_printf("G\r\n");
+			}
+			delay();
 		}
 		else if ((ADCRead_H() > 65000) & (ADCRead_V() > 60000)) {
 			// NorthEast
-			debug_printf("B");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("M\r\n");
+			}
+			else {
+				debug_printf("B\r\n");
+			}
+			delay();
 		}
 		else if ((ADCRead_H() > 65000) & (ADCRead_V() < 30000)) {
 			// SouthEast
-			debug_printf("D");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("P\r\n");
+			}
+			else {
+				debug_printf("D\r\n");
+			}
+			delay();
 		}
 		else if (ADCRead_H() > 65000) {
 			// East
-			debug_printf("C");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("N\r\n");
+			}
+			else {
+				debug_printf("C\r\n");
+			}
+			delay();
 		}
 		else if (ADCRead_V() < 30000) {
 			// South
-			debug_printf("E");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("Q\r\n");
+			}
+			else {
+				debug_printf("E\r\n");
+			}
+			delay();
 		}
 		else if (ADCRead_V() > 60000) {
 			// North
-			debug_printf("A");
+			PTB->PSOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("L\r\n");
+			}
+			else {
+				debug_printf("A\r\n");
+			}
+			delay();
 		}
 		else {
 			// Center
-			debug_printf("O");
-		}
-		delay();
-		if (!GPIOC_PDIR) {
-			//PTB->PCOR = 1 << 21;
-			debug_printf("I");
+			PTB->PCOR = 1 << 21;
+			if(!GPIOC_PDIR) {
+				debug_printf("U\r\n");
+			}
+			else {
+				debug_printf("O\r\n");
+			}
 			delay();
-			
 		}
+	
 	}
 	
 	return 0;

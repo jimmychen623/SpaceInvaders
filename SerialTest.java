@@ -35,15 +35,13 @@ public void run() {
     System.out.println("Here is the standard output of the command:\n");
     int count = 0;
     while ((s = stdInput.readLine()) != null) {
-
+    	if(s == null || s.equals("") || s == ""){
+    	//	System.out.println("what are u doing");
+    	}
+    	else {
     		reading = s;
-    		 System.out.println("SO is + " + s);
-    		try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				System.out.println("well f");
-			}
+    	}
+    		
 
     	//System.out.println(count);
         
@@ -53,7 +51,7 @@ public void run() {
     
     System.out.println("Here is the standard error of the command (if any):\n");
     while ((s = stdError.readLine()) != null) {
-        //System.out.println(s);
+        System.out.println(s);
     }
     
     System.exit(0);

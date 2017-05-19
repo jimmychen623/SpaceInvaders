@@ -120,5 +120,5 @@ void LED_Off (void) {
 
 void delay(void){
 	int j;
-	for(j=0; j<10000; j++);
+	for(j=0; j<4000000; j++);
 }
