@@ -86,17 +86,34 @@ public synchronized void serialEvent(SerialPortEvent oEvent) {
     // Ignore all the other eventTypes, but you should consider the other ones.
 }
 
-public static void main(String[] args) throws Exception {
-    SerialTest main = new SerialTest();
-    main.initialize();
-    Thread t=new Thread() {
-        public void run() {
-            //the following line will keep this app alive for 1000    seconds,
-            //waiting for events to occur and responding to them    (printing incoming messages to console).
-            try {Thread.sleep(1000000);} catch (InterruptedException    ie) {}
-        }
-    };
-    t.start();
-    System.out.println("Started");
+//public static void main(String[] args) throws Exception {
+//    SerialTest main = new SerialTest();
+//    main.initialize();
+//    Thread t=new Thread() {
+//        public void run() {
+//            //the following line will keep this app alive for 1000    seconds,
+//            //waiting for events to occur and responding to them    (printing incoming messages to console).
+//            try {Thread.sleep(1000000);} catch (InterruptedException    ie) {}
+//        }
+//    };
+//    t.start();
+//    System.out.println("Started");
+//}
+
+public static void main(String[] args){
+	Process p;
+	try {
+		System.out.println("SEND");
+		String cmd = "python ../../serialtest.py";
+		p = Runtime.getRuntime().exec(cmd);
+		BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		String s = br.readLine();
+		System.out.println(s);
+		System.out.println("Sent");
+		p.waitFor();
+		p.destroy();
+		
+	}
+	catch (Exception e){System.out.println("hi");}
 }
 }
